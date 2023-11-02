@@ -30,7 +30,7 @@ yarn-error.log*
 .env*.local
 
 # cache
-diary-amplify/
+arsarana-comprof/
 
 # vercel
 .vercel

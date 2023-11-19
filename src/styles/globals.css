@@ -28,35 +28,35 @@
     --color-primary-900: rgb(var(--tw-color-primary-900)); /* #0c4a6e */
 
     --arsaranabackground: 0 0% 100%;
-    --arsaranaforeground: 222.2 47.4% 11.2%;
-    --arsaranatitle: 222.2 47.4% 11.2%;
+    --arsaranaforeground: 215 62.2% 30.4%;
+    --arsaranatitle: 215 62.2% 30.4%;
     --arsaranatitleinverse: 48 100% 67.6%;
 
     --yellowmain: 48 100% 67.6%;
 
     --background: 0 0% 100%;
-    --foreground: 222.2 47.4% 11.2%;
+    --foreground: 215 62.2% 30.4%;
 
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 47.4% 11.2%;
+    --popover-foreground: 215 62.2% 30.4%;
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 47.4% 11.2%;
+    --card-foreground: 215 62.2% 30.4%;
 
-    --primary: 222.2 47.4% 11.2%;
+    --primary: 215 62.2% 30.4%;
     --primary-foreground: 210 40% 98%;
 
     --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary-foreground: 215 62.2% 30.4%;
 
     --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent-foreground: 215 62.2% 30.4%;
 
     --destructive: 0 100% 50%;
     --destructive-foreground: 210 40% 98%;
@@ -71,10 +71,10 @@
     --background: 224 71% 4%;
     --foreground: 213 31% 91%;
 
-    --arsaranabackground: 222.2 47.4% 11.2%;
+    --arsaranabackground: 215 62.2% 30.4%;
     --arsaranaforeground: 213 31% 91%;
     --arsaranatitle: 48 100% 67.6%;
-    --arsaranatitleinverse: 222.2 47.4% 11.2%;
+    --arsaranatitleinverse: 215 62.2% 30.4%;
 
     --yellowmain: 48 100% 67.6%;
 
@@ -96,7 +96,7 @@
     --primary: 210 40% 98%;
     --primary-foreground: 222.2 47.4% 1.2%;
 
-    --secondary: 222.2 47.4% 11.2%;
+    --secondary: 215 62.2% 30.4%;
     --secondary-foreground: 210 40% 98%;
 
     --destructive: 0 63% 31%;

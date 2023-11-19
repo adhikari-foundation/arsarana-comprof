@@ -34,8 +34,7 @@ export const dashboardConfig: DashboardConfig = {
     },
     {
       title: 'Contact Us',
-      href: '/contact-us',
-      disabled: true,
+      href: '/contact',
     },
   ],
   mainNavAuth: [

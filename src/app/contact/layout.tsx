@@ -4,7 +4,7 @@ import { Metadata } from 'next';
 import { MainNav } from '@src/components/layout/navigation/topnav/main-nav';
 // import { SiteFooter } from '@src/components/layout/site-footer';
 
-interface IndexPageProps {
+interface ContactPageProps {
   children: React.ReactNode;
 }
 
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   description: 'Arsarana Company Profile Website',
 };
 
-export default async function IndexLayout({ children }: IndexPageProps) {
+export default async function ContactLayout({ children }: ContactPageProps) {
   return (
     <>
       <div className='flex min-w-full flex-col items-center justify-between'>

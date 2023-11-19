@@ -17,6 +17,7 @@ import {
   FolderSearch,
   Footprints,
   Frown,
+  Globe,
   HelpCircle,
   History,
   Image,
@@ -24,8 +25,10 @@ import {
   Loader2,
   LucideCalendarCheck,
   LucideProps,
+  Mail,
   Moon,
   MoreVertical,
+  Phone,
   Pizza,
   Plus,
   Settings,
@@ -43,6 +46,9 @@ import {
 export type Icon = LucideIcon;
 
 export const Icons = {
+  globe: Globe,
+  mail: Mail,
+  phone: Phone,
   logo: BookLock,
   close: X,
   spinner: Loader2,

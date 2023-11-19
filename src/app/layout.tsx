@@ -79,7 +79,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
       <head />
       <body
         className={clsxm(
-          'bg-background min-h-screen font-sans antialiased'
+          'bg-arsaranabackground min-h-screen font-sans antialiased'
           // fontSans.variable
           // fontHeading.variable
         )}

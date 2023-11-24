@@ -6,6 +6,44 @@ import { Icons } from '../default-icons';
 import UnstyledLink from '../links/unstyled-link';
 // import { ModeToggle } from '@src/components/mode-toggle';
 
+function DownloadPortfolioSection() {
+  return (
+    <div className='bg-arsaranaforeground w-full'>
+      <div className='mx-auto max-w-2xl py-10 text-white'>
+        <div className='text-center'>
+          <h3 className='text-arsaranatitleinverse mb-3 text-3xl'>
+            {' '}
+            Download Our Profile{' '}
+          </h3>
+          <p className='text-arsaranatitleinverse'>
+            {' '}
+            See more on our company profile by clicking download button below
+          </p>
+          <div className='text-arsaranatitleinverse my-10 flex justify-center hover:cursor-pointer'>
+            <UnstyledLink
+              className='border-arsaranabackground mx-2 flex w-auto items-center rounded-lg border px-4 py-2'
+              href='/files/comprof.pdf'
+              target='_blank'
+            >
+              {/* <UnstyledLink
+                href='/files/comprof.pdf'
+                target='_blank'
+                rel='noopener noreferrer'
+              > */}
+              <Icons.download />
+              <div className='ml-3 text-left'>
+                <p className='text-lg font-bold'>Download on </p>
+                <p className='text-sm font-bold md:text-base'> PDF </p>
+              </div>
+              {/* </UnstyledLink> */}
+            </UnstyledLink>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function SocmedFooterSection() {
   return (
     <div className='text-arsaranatitle mt-8 flex flex-col gap-4'>
@@ -38,7 +76,7 @@ export function SiteFooter({ className }: React.HTMLAttributes<HTMLElement>) {
     {
       id: 2,
       title: 'Meet the Team',
-      href: '#',
+      href: '/our-team',
     },
     {
       id: 3,
@@ -100,7 +138,7 @@ export function SiteFooter({ className }: React.HTMLAttributes<HTMLElement>) {
     {
       id: 1,
       title: 'Contact',
-      href: '#',
+      href: '/contact',
     },
     {
       id: 2,
@@ -121,13 +159,14 @@ export function SiteFooter({ className }: React.HTMLAttributes<HTMLElement>) {
       href: '#',
     },
     {
-      id: 1,
+      id: 2,
       title: 'Terms & Conditions',
       href: '#',
     },
   ];
   return (
     <footer className='bg-arsaranabackground'>
+      <DownloadPortfolioSection />
       <div className='mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8'>
         <div className='grid grid-cols-1 gap-8 lg:grid-cols-3'>
           <div>

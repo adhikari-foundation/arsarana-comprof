@@ -18,6 +18,9 @@ export const env = createEnv({
     STRIPE_API_KEY: z.string().min(1),
     STRIPE_WEBHOOK_SECRET: z.string().min(1),
     STRIPE_PRO_MONTHLY_PLAN_ID: z.string().min(1),
+    NOTION_API_SECRET: z.string().min(1),
+    NOTION_ARTICLE_DB_ID: z.string().min(1),
+    NOTION_TEAM_DB_ID: z.string().min(1),
   },
   client: {
     NEXT_PUBLIC_APP_URL: z.string().min(1),
@@ -39,5 +42,8 @@ export const env = createEnv({
     STRIPE_PRO_MONTHLY_PLAN_ID: process.env.STRIPE_PRO_MONTHLY_PLAN_ID,
     NEXT_PUBLIC_APP_URL: process.env.NEXT_PUBLIC_APP_URL,
     NEXT_PUBLIC_API_BASE_URL: process.env.NEXT_PUBLIC_API_BASE_URL,
+    NOTION_API_SECRET: process.env.NOTION_API_SECRET,
+    NOTION_ARTICLE_DB_ID: process.env.NOTION_ARTICLE_DB_ID,
+    NOTION_TEAM_DB_ID: process.env.NOTION_TEAM_DB_ID,
   },
 });

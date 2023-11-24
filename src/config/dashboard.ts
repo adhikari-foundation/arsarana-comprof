@@ -14,8 +14,8 @@ export const dashboardConfig: DashboardConfig = {
     },
     {
       title: 'Our Team',
-      href: '/team',
-      disabled: true,
+      href: '/our-team',
+      disabled: false,
     },
     {
       title: 'Experiences',

@@ -1,3 +1,4 @@
+/* eslint-disable unused-imports/no-unused-vars */
 'use client';
 
 // import { useTheme } from 'next-themes';
@@ -17,8 +18,10 @@ import UnstyledLink from '@src/components/links/unstyled-link';
 import Typography from '@src/components/typography/default-typography';
 
 import TeamSection from './team';
+// import ArticlesPage from '../articles/(index)/page';
 
-export default function IndexPage() {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export default function IndexPage({ params }: any) {
   const { theme } = useTheme();
   // const url = '/images/8.jpg';
   const url2 = '/images/16-bgr.png';
@@ -395,6 +398,8 @@ export default function IndexPage() {
           </ul>
         </div>
       </section>
+
+      {/* <ArticlesPage params={params} /> */}
 
       <section
         key={5}

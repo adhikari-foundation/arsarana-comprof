@@ -2,6 +2,10 @@ import Image from 'next/image';
 
 import clsxm from '@src/lib/clsxm';
 
+import { Icons } from '@src/components/default-icons';
+import UnstyledLink from '@src/components/links/unstyled-link';
+import Typography from '@src/components/typography/default-typography';
+
 export default function TeamSection() {
   const teamitems = [
     {
@@ -41,12 +45,12 @@ export default function TeamSection() {
             <h2 className='text-arsaranatitle mb-4 text-center text-2xl font-bold md:text-4xl'>
               Our Team
             </h2>
-            <p className='text-foreground lg:mx-auto lg:w-8/12'>
+            {/* <p className='text-foreground lg:mx-auto lg:w-8/12'>
               ARSARANA has a pool of talents consisted of young and dynamic
               experts who have extensive experience to deliver successful
               transportation infrastructure projects with engineering,
               management environment, technology, and policy excellent.
-            </p>
+            </p> */}
           </div>
           <div className='grid items-center gap-12 md:grid-cols-3'>
             {teamitems &&
@@ -74,6 +78,17 @@ export default function TeamSection() {
                   </div>
                 );
               })}
+            <div></div>
+            <div></div>
+            <UnstyledLink
+              className='text-arsaranatitle flex w-full flex-row items-center justify-end pr-8'
+              href='/our-team'
+            >
+              <Typography variant='h2' className='text-arsaranatitle'>
+                See All
+              </Typography>
+              <Icons.arrowRight />
+            </UnstyledLink>
           </div>
         </div>
       </div>

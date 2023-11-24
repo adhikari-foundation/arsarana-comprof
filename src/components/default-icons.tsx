@@ -10,6 +10,7 @@ import {
   ChevronRight,
   CircleEllipsis,
   CreditCard,
+  Download,
   File,
   FileLock2,
   Files,
@@ -46,6 +47,7 @@ import {
 export type Icon = LucideIcon;
 
 export const Icons = {
+  download: Download,
   globe: Globe,
   mail: Mail,
   phone: Phone,

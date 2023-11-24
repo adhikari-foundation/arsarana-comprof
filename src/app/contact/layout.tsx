@@ -9,7 +9,7 @@ interface ContactPageProps {
 }
 
 export const metadata: Metadata = {
-  title: 'Home',
+  title: 'Contact Us',
   description: 'Arsarana Company Profile Website',
 };
 

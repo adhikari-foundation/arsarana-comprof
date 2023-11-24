@@ -2,10 +2,14 @@ import { dashboardConfig } from '@src/config/dashboard';
 import { Metadata } from 'next';
 
 import { MainNav } from '@src/components/layout/navigation/topnav/main-nav';
+
+import { getAllPublished } from '../articles/(index)/layout';
 // import { SiteFooter } from '@src/components/layout/site-footer';
 
 interface IndexPageProps {
   children: React.ReactNode;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  params: any;
 }
 
 export const metadata: Metadata = {
@@ -13,7 +17,13 @@ export const metadata: Metadata = {
   description: 'Arsarana Company Profile Website',
 };
 
-export default async function IndexLayout({ children }: IndexPageProps) {
+export default async function IndexLayout({
+  children,
+  params,
+}: IndexPageProps) {
+  const gg = await getAllPublished();
+
+  params.pages = gg;
   return (
     <>
       <div className='flex min-w-full flex-col items-center justify-between'>

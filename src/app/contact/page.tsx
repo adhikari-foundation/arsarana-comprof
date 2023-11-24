@@ -134,17 +134,20 @@ export default function ContactPage() {
             width='100%'
             height='100%'
             title='map'
-            src='https://maps.google.com/maps?width=100%&height=600&hl=en&q=%C4%B0Adhikari+(My%20Business%20Name)&ie=UTF8&t=&z=14&iwloc=B&output=embed'
+            src='https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Jl.%20Bend.%20Asahan%20No.6,%20RT.4/RW.2,%20Bend.%20Hilir,%20Kecamatan%20Tanah%20Abang,%20Kota%20Jakarta%20Pusat,%20Daerah%20Khusus%20Ibukota%20Jakarta%2010210,%20Indonesia+(Adhikari)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed'
           ></iframe>
         </div>
         <div className='container mx-auto flex px-5 py-24'>
           <div className='relative z-10 mt-10 flex w-full flex-col rounded-lg bg-white p-8 shadow-md md:ml-auto md:mt-0 md:w-1/2 lg:w-1/3'>
             <h2 className='title-font mb-1 text-lg font-medium text-gray-900'>
-              Feedback
+              Give us a visit at our office
             </h2>
-            <p className='mb-5 leading-relaxed text-gray-600'>
-              Post-ironic portland shabby chic echo park, banjo fashion axe
-            </p>
+            <h1 className='title-font mb-1 text-lg font-medium text-gray-900'>
+              Arsarana
+            </h1>
+            {/* <p className='mb-5 leading-relaxed text-gray-600'>
+              Give us a visit at our office
+            </p> */}
             <div className='relative mb-4'>
               {/* <label for="email" className="leading-7 text-sm text-gray-600">Email</label> */}
               {/* <input type="email" id="email" name="email" className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"> */}
@@ -153,13 +156,13 @@ export default function ContactPage() {
               {/* <label for="message" className="leading-7 text-sm text-gray-600">Message</label>
         <textarea id="message" name="message" className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea> */}
             </div>
-            <button className='rounded border-0 bg-indigo-500 px-6 py-2 text-lg text-white hover:bg-indigo-600 focus:outline-none'>
+            {/* <button className='rounded border-0 bg-indigo-500 px-6 py-2 text-lg text-white hover:bg-indigo-600 focus:outline-none'>
               Button
             </button>
             <p className='mt-3 text-xs text-gray-500'>
               Chicharrones blog helvetica normcore iceland tousled brook viral
               artisan.
-            </p>
+            </p> */}
           </div>
         </div>
       </section>

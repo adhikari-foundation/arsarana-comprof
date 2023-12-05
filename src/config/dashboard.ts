@@ -2,36 +2,35 @@ import { DashboardConfig } from '@src/types';
 
 export const dashboardConfig: DashboardConfig = {
   mainNav: [
-    {
-      title: 'About Us',
-      href: '/about-us',
-      disabled: true,
-    },
-    {
-      title: 'Our Services',
-      href: '/',
-      disabled: true,
-    },
+    // {
+    //   title: 'About Us',
+    //   href: '/about-us',
+    //   disabled: true,
+    // },
+    // {
+    //   title: 'Our Services',
+    //   href: '/',
+    //   disabled: true,
+    // },
     {
       title: 'Our Team',
       href: '/our-team',
       disabled: false,
     },
+    // {
+    //   title: 'Experiences',
+    //   href: '/experiences',
+    //   disabled: true,
+    // },
     {
-      title: 'Experiences',
-      href: '/experiences',
-      disabled: true,
+      title: 'Tabloid',
+      href: '/tabloid',
     },
-    {
-      title: 'Portfolios',
-      href: '/portfolios',
-      disabled: true,
-    },
-    {
-      title: 'Blog',
-      href: '/blog',
-      disabled: true,
-    },
+    // {
+    //   title: 'Blog',
+    //   href: '/blog',
+    //   disabled: true,
+    // },
     {
       title: 'Contact Us',
       href: '/contact',

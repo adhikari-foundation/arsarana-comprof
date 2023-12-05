@@ -21,6 +21,7 @@ export const env = createEnv({
     NOTION_API_SECRET: z.string().min(1),
     NOTION_ARTICLE_DB_ID: z.string().min(1),
     NOTION_TEAM_DB_ID: z.string().min(1),
+    NOTION_TABLOID_DB_ID: z.string().min(1),
   },
   client: {
     NEXT_PUBLIC_APP_URL: z.string().min(1),
@@ -45,5 +46,6 @@ export const env = createEnv({
     NOTION_API_SECRET: process.env.NOTION_API_SECRET,
     NOTION_ARTICLE_DB_ID: process.env.NOTION_ARTICLE_DB_ID,
     NOTION_TEAM_DB_ID: process.env.NOTION_TEAM_DB_ID,
+    NOTION_TABLOID_DB_ID: process.env.NOTION_TABLOID_DB_ID,
   },
 });

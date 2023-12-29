@@ -55,40 +55,46 @@ export default function IndexPage({ params }: any) {
       numbering: '01.',
       title: 'Transportation Engineering Design',
       description:
-        'Description for Transportation Engineering Design, preferable 3-4 line long for better message and best look.',
+        'ARSARANA memiliki tim yang siap berkontribusi pada penyusunan desain infrastruktur transportasi seperti jalan raya, jalan rel, terminal, pelabuhan, dan bandar udara. ',
     },
     {
       id: 2,
       numbering: '02.',
       title: 'Transport Feasibility Study',
       description:
-        'Description for Transport Feasibility Study, preferable 3-4 line long for better message and best look.',
+        'ARSARANA memiliki tim yang siap berkontribusi pada penyusunan studi kelayakan infrastruktur transportasi seperti jalan raya, jalan rel, terminal, pelabuhan, dan bandar udara. ',
     },
     {
       id: 3,
       numbering: '03.',
-      title: 'Transportation Survey and GIS',
+      title: 'Transport Management System',
       description:
-        'Description for Transportation Survey and GIS, preferable 3-4 line long for better message and best look.',
+        'ARSARANA memiliki tim yang siap berkontribusi pada sistem manajement transportasi (TMS) seperti jalan raya, jalan rel, terminal, pelabuhan, dan bandar udara. ',
     },
     {
       id: 4,
       numbering: '04.',
-      title: 'Transport Transaction Advisory',
+      title: 'Transportation Survey and GIS',
       description:
-        'Description for Transport Transaction Advisory, preferable 3-4 line long for better message and best look.',
+        'ARSARANA memiliki tim yang siap berkontribusi pada kegiatan survey dan GIS seperti survey pada jalan raya, jalan rel, terminal, pelabuhan, dan bandar udara. ',
     },
     {
       id: 5,
       numbering: '05.',
-      title: 'Transportation Technology',
+      title: 'Transportation Environment',
       description:
-        'Description for Transportation Technology, preferable 3-4 line long for better message and best look.',
+        'ARSARANA memiliki tim yang siap berkontribusi dalam kegiatan transportasi yang ramah lingkungan. Kegiatan transportasi dapat diidentifikasi menggunakan pendekatan yang sesuai untuk menyelaraskan kebijakan transportasi dan lingkungan.',
     },
     {
       id: 6,
+      numbering: `06.`,
+      title: 'Transportation Technology',
+      description: `ARSARANA memiliki tim yang siap berkontribusi untuk memastikan bahwa teknologi dan infrastruktur dalam bidang transportasi memperhatikan aspek efisiensi, kemudahan dan keselamatan. `,
+    },
+    {
+      id: 7,
       numbering: `${' '}${' '}${' '}`,
-      title: 'See More',
+      title: 'See Details',
       href: '#',
       description: `${' '}${' '}${' '}`,
     },
@@ -336,6 +342,7 @@ export default function IndexPage({ params }: any) {
       </section>
 
       <section
+        id='service'
         key={4}
         className={clsxm(
           'flex max-h-fit min-h-[60vh] w-full flex-col overflow-hidden',
@@ -350,7 +357,7 @@ export default function IndexPage({ params }: any) {
           <ul className='grid place-content-center gap-8 sm:grid-cols-2'>
             {servicesitems &&
               servicesitems.map((item) => {
-                if (item.id < 6) {
+                if (item.id < 7) {
                   return (
                     <li className='flex' key={item.id}>
                       <Typography
@@ -372,7 +379,10 @@ export default function IndexPage({ params }: any) {
                   );
                 } else {
                   return (
-                    <li className='flex' key={item.id}>
+                    <li
+                      className='flex items-end justify-end sm:col-span-2'
+                      key={item.id}
+                    >
                       <Typography
                         variant='b1'
                         color='arsarana-title'

@@ -68,11 +68,11 @@ export function SiteFooter({ className }: React.HTMLAttributes<HTMLElement>) {
   const { theme } = useTheme();
 
   const footercompanyitems = [
-    {
-      id: 1,
-      title: 'About',
-      href: '#',
-    },
+    // {
+    //   id: 1,
+    //   title: 'About',
+    //   href: '#',
+    // },
     {
       id: 2,
       title: 'Meet the Team',
@@ -80,8 +80,8 @@ export function SiteFooter({ className }: React.HTMLAttributes<HTMLElement>) {
     },
     {
       id: 3,
-      title: 'History',
-      href: '#',
+      title: 'Tabloid',
+      href: '/tabloid',
     },
     {
       id: 4,
@@ -94,43 +94,43 @@ export function SiteFooter({ className }: React.HTMLAttributes<HTMLElement>) {
     {
       id: 1,
       title: 'Transport Engineering Design',
-      href: '#',
+      href: '/services',
     },
     {
       id: 2,
       title: 'Transport Feasibility Study',
-      href: '#',
+      href: '/services',
     },
     {
       id: 3,
-      title: 'Trasportation Survey and GIS',
-      href: '#',
+      title: 'Transportation Management System',
+      href: '/services',
     },
     {
       id: 4,
-      title: 'Transport Transaction Advisory',
-      href: '#',
+      title: 'Trasportation Survey and GIS',
+      href: '/services',
+    },
+    // {
+    //   id: 4,
+    //   title: 'Transport Transaction Advisory',
+    //   href: '#',
+    // },
+    // {
+    //   id: 5,
+    //   title:
+    //     'Monitoring and Evaluation for Transportation Facilities and Operation',
+    //   href: '#',
+    // },
+    {
+      id: 6,
+      title: 'Transportation Technology',
+      href: '/services',
     },
     {
       id: 5,
-      title:
-        'Monitoring and Evaluation for Transportation Facilities and Operation',
-      href: '#',
-    },
-    {
-      id: 6,
-      title: 'Transportation System Management',
-      href: '#',
-    },
-    {
-      id: 7,
-      title: 'Transportation Technology',
-      href: '#',
-    },
-    {
-      id: 8,
       title: 'Transportation Environment',
-      href: '#',
+      href: '/services',
     },
   ];
 
@@ -140,30 +140,25 @@ export function SiteFooter({ className }: React.HTMLAttributes<HTMLElement>) {
       title: 'Contact',
       href: '/contact',
     },
-    {
-      id: 2,
-      title: 'FAQs',
-      href: '#',
-    },
-    {
-      id: 3,
-      title: 'Live Chat',
-      href: '#',
-    },
+    // {
+    //   id: 3,
+    //   title: 'Live Chat',
+    //   href: '#',
+    // },
   ];
 
-  const footerlegalitems = [
-    {
-      id: 1,
-      title: 'Privacy Policy',
-      href: '#',
-    },
-    {
-      id: 2,
-      title: 'Terms & Conditions',
-      href: '#',
-    },
-  ];
+  // const footerlegalitems = [
+  //   // {
+  //   //   id: 1,
+  //   //   title: 'Privacy Policy',
+  //   //   href: '#',
+  //   // },
+  //   // {
+  //   //   id: 2,
+  //   //   title: 'Terms & Conditions',
+  //   //   href: '#',
+  //   // },
+  // ];
   return (
     <footer className='bg-arsaranabackground'>
       <DownloadPortfolioSection />
@@ -186,7 +181,7 @@ export function SiteFooter({ className }: React.HTMLAttributes<HTMLElement>) {
             </p>
             <SocmedFooterSection />
           </div>
-          <div className='grid grid-cols-1 gap-8 sm:grid-cols-2 lg:col-span-2 lg:grid-cols-4'>
+          <div className='grid grid-cols-1 gap-8 sm:grid-cols-2 lg:col-span-2 lg:grid-cols-3'>
             <div>
               <p className='text-arsaranatitle font-medium'>Company</p>
               <nav className='text-foreground mt-4 flex flex-col space-y-2 text-sm'>
@@ -241,7 +236,7 @@ export function SiteFooter({ className }: React.HTMLAttributes<HTMLElement>) {
                   })}
               </nav>
             </div>
-            <div>
+            {/* <div>
               <p className='text-arsaranatitle font-medium'>Legal</p>
               <nav className='text-foreground mt-4 flex flex-col space-y-2 text-sm'>
                 {footerlegalitems &&
@@ -258,7 +253,7 @@ export function SiteFooter({ className }: React.HTMLAttributes<HTMLElement>) {
                     );
                   })}
               </nav>
-            </div>
+            </div> */}
           </div>
         </div>
         <p className='text-foreground mt-8 text-xs'>

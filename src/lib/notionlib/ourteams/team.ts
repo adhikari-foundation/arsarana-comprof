@@ -1,10 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import logger from '@src/lib/logger';
 import { notion } from '@src/lib/notion';
 
 import { env } from '@/env.mjs';
 
 const getPageMetaData = (team: any) => {
-  return {
+  const objectteam = {
     id: team.id,
     fullname: team.properties.Name.title[0].plain_text,
     // description: post.properties.Id.number,
@@ -12,6 +13,8 @@ const getPageMetaData = (team: any) => {
     positionExtra: team.properties.PositionExtra.rich_text[0]?.plain_text,
     profileImage: team.properties.Photo.files[0]?.file.url,
   };
+  logger(objectteam);
+  return objectteam;
 };
 
 export const getAllTeams = async () => {

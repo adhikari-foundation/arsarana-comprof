@@ -3,6 +3,7 @@
 'use client';
 
 // import { useTheme } from 'next-themes';
+// import { revalidatePath } from 'next/cache';
 import Image from 'next/image';
 import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
@@ -14,6 +15,7 @@ import { SiteFooter } from '@src/components/layout/site-footer';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default function OurTeamPage({ params }: any) {
+  // revalidatePath('/', 'layout');
   const { theme } = useTheme();
   // const url = null;
   const [mounted, setMounted] = useState(false);

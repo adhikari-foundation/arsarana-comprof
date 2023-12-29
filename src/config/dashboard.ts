@@ -17,20 +17,20 @@ export const dashboardConfig: DashboardConfig = {
       href: '/our-team',
       disabled: false,
     },
-    // {
-    //   title: 'Experiences',
-    //   href: '/experiences',
-    //   disabled: true,
-    // },
+    {
+      title: 'Careers',
+      href: '/careers',
+      disabled: false,
+    },
     {
       title: 'Tabloid',
       href: '/tabloid',
     },
-    // {
-    //   title: 'Blog',
-    //   href: '/blog',
-    //   disabled: true,
-    // },
+    {
+      title: 'Services',
+      href: '/services',
+      disabled: false,
+    },
     {
       title: 'Contact Us',
       href: '/contact',

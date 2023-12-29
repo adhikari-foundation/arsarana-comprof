@@ -2,7 +2,7 @@ import { dashboardConfig } from '@src/config/dashboard';
 import { Metadata } from 'next';
 import { revalidatePath } from 'next/cache';
 
-import { getAllTeams } from '@src/lib/notionlib/ourteams/team';
+import { getAllServices } from '@src/lib/notionlib/services/services';
 
 import { MainNav } from '@src/components/layout/navigation/topnav/main-nav';
 // import { SiteFooter } from '@src/components/layout/site-footer';
@@ -14,18 +14,18 @@ interface ContactPageProps {
 }
 
 export const metadata: Metadata = {
-  title: 'Our Team',
+  title: 'Our Services',
   description: 'Arsarana Company Profile Website',
 };
 
-export default async function OurTeamLayout({
+export default async function OurServicesLayout({
   children,
   params,
 }: ContactPageProps) {
   revalidatePath('/', 'layout');
-  const allTeams = await getAllTeams();
+  const allServices = await getAllServices();
 
-  params.teamMembers = allTeams;
+  params.services = allServices;
   return (
     <>
       <div className='flex min-w-full flex-col items-center justify-between'>

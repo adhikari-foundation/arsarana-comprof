@@ -42,7 +42,7 @@ export default function IndexPage({ params }: any) {
       ctahref: '/traffic-modelling',
     },
     {
-      imgsource: '/images/13.jpg',
+      imgsource: '/images/origin_destination.jpeg',
       title: 'ORIGIN-DESTINATION SURVEY',
       ctatitle: '',
       ctahref: '',
@@ -105,33 +105,33 @@ export default function IndexPage({ params }: any) {
       id: 1,
       title: 'Traffic Volume Review Consultancy Services',
       href: '/portfolio/traffic-volume-review-consultancy-services',
-      imagelocation: '/images/9.jpg',
+      imagelocation: '/images/serang.jpeg',
       description:
-        'Description for Traffic Volume Review Consultancy Services, preferable 3-4 line long for better message and best look. Traffic Volume Review Consultancy Services for Serang Panimbang Toll Road 2023',
+        'Traffic Volume Review Consultancy Services for Serang Panimbang Toll Road 2023',
     },
     {
       id: 2,
       title: 'Transportation Consultancy Services for Government Cooperation',
       href: '/portfolio/transportation-consultancy-services-for-government-corporation',
-      imagelocation: '/images/11.jpg',
+      imagelocation: '/images/survey_blu_lrt_palembang.jpeg',
       description:
-        'Description for Transportation Consultancy Services for Government Cooperation, preferable 3-4 line long for better message and best look. Transportation Consultancy Services for Government Cooperation Projects with Business Entities (PPP) for the Provision of 60 Residential Towers for State Security Defense Personnel in WP 1A and 95 Residential Towers for State Civil Apparatus in WP 1B',
+        'Transportation Consultancy Services for Government Cooperation Projects with Business Entities (PPP) for the Provision of 60 Residential Towers for State Security Defense Personnel in WP 1A and 95 Residential Towers for State Civil Apparatus in WP 1B',
     },
     {
       id: 3,
       title: 'Christmas and New Year Data Analysis Study',
       href: '/portfolio/christmast-and-new-year-data-analysis-study',
-      imagelocation: '/images/12.jpg',
+      imagelocation: '/images/proyek_modelling.jpeg',
       description:
-        'Description for Christmas and New Year Data Analysis Study, preferable 3-4 line long for better message and best look. Christmas and New Year Data Analysis Study in Jabodetabek Area',
+        'Christmas and New Year Data Analysis Study in Jabodetabek Area',
     },
     {
       id: 4,
       title: 'Project Management Consultant Bus Rapid Transit (PMC BRT)',
       href: '/portfolio/project-management-consultant-bus-rapid-transit',
-      imagelocation: '/images/15.jpg',
+      imagelocation: '/images/fgd_pmc_brt.jpeg',
       description:
-        'Description for Project Management Consultant Bus Rapid Transit (PMC BRT), preferable 3-4 line long for better message and best look. Project Management Consultant Bus Rapid Transit (PMC BRT) Medan and Bandung',
+        'Project Management Consultant Bus Rapid Transit (PMC BRT) Medan and Bandung',
     },
   ];
 

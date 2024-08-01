@@ -5,6 +5,7 @@
 // import { useTheme } from 'next-themes';
 // import { revalidatePath } from 'next/cache';
 // import Image from 'next/image';
+import clsx from 'clsx';
 import Image from 'next/image';
 import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
@@ -30,6 +31,12 @@ export default function OurServicesPage({ params }: any) {
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  useEffect(() => {
+    if (!selectedService) {
+      setSelectedService(params.services[0]);
+    }
+  }, [params, selectedService]);
 
   if (!mounted) {
     return <></>;
@@ -76,7 +83,11 @@ export default function OurServicesPage({ params }: any) {
             return (
               <Button
                 key={item.id}
-                className='bg-arsarana-foreground text-arsaranatitle hover:text-arsaranatitleinverse'
+                className={clsx(
+                  selectedService.id === item.id
+                    ? 'bg-arsaranaforeground text-arsaranatitleinverse'
+                    : 'bg-arsaranabackground text-arsaranatitle hover:text-arsaranatitleinverse'
+                )}
                 onClick={() => {
                   setSelectedService(item);
                 }}
@@ -98,12 +109,15 @@ export default function OurServicesPage({ params }: any) {
                 {selectedService.serviceDescription}
               </p>
               <Image
-                width={300}
-                height={400}
+                width={600}
+                height={800}
                 // fill
                 // objectFit='none'
-                className='h-auto w-auto'
-                src={selectedService.serviceImage || '/images/avatar.png'}
+                className='bg-arsaranaforeground h-auto w-auto'
+                src={
+                  `/images/services/${selectedService.serviceName}.png` ||
+                  '/images/avatar.png'
+                }
                 alt='photo'
               />
               <p className='text-foreground my-4 max-w-4xl py-2 text-lg'>

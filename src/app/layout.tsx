@@ -86,8 +86,8 @@ export default function RootLayout({ children }: RootLayoutProps) {
       >
         <ThemeProvider
           attribute='class'
-          defaultTheme='dark'
-          enableSystem={true}
+          defaultTheme='light'
+          enableSystem={false}
         >
           {children}
           <Analytics />

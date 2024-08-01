@@ -57,7 +57,7 @@ export default function OurTeamPage({ params }: any) {
                     width={150}
                     height={300}
                     className='h-auto w-full object-cover object-center'
-                    src={team.profileImage || '/images/avatar.png'}
+                    src={`/images/teams/${team.id}.png` || '/images/avatar.png'}
                     alt='photo'
                   />
                 </div>

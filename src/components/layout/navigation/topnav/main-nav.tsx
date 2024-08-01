@@ -10,8 +10,8 @@ import { clsxm } from '@src/lib/utils';
 
 import { Icons } from '@src/components/default-icons';
 import UnstyledLink from '@src/components/links/unstyled-link';
-import { ModeToggle } from '@src/components/mode-toggle';
 
+// import { ModeToggle } from '@src/components/mode-toggle';
 import { MobileNav } from '../mobilenav/mobile-nav';
 
 // import { siteConfig } from "@src/config/site"
@@ -64,7 +64,7 @@ export function MainNav({ items, children }: MainNavProps) {
             ))}
           </nav>
         ) : null}
-        <ModeToggle />
+        {/* <ModeToggle /> */}
       </div>
 
       <button

@@ -85,8 +85,8 @@ export default function OurServicesPage({ params }: any) {
                 key={item.id}
                 className={clsx(
                   selectedService.id === item.id
-                    ? 'bg-arsaranaforeground text-arsaranatitleinverse'
-                    : 'bg-arsaranabackground text-arsaranatitle hover:text-arsaranatitleinverse'
+                    ? 'bg-foreground text-background'
+                    : 'bg-arsaranabackground text-arsaranatitle hover:text-background'
                 )}
                 onClick={() => {
                   setSelectedService(item);
@@ -113,7 +113,7 @@ export default function OurServicesPage({ params }: any) {
                 height={800}
                 // fill
                 // objectFit='none'
-                className='bg-arsaranaforeground h-auto w-auto'
+                className='bg-foreground h-auto w-auto'
                 src={
                   `/images/services/${selectedService.serviceName}.png` ||
                   '/images/avatar.png'

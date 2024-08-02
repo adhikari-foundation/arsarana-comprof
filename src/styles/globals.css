@@ -28,9 +28,9 @@
     --color-primary-900: rgb(var(--tw-color-primary-900)); /* #0c4a6e */
 
     --arsaranabackground: 0 0% 100%;
-    --arsaranaforeground: 215 62.2% 30.4%;
+    --arsaranaforeground: 215 1% 82%;
     --arsaranatitle: 215 62.2% 30.4%;
-    --arsaranatitleinverse: 48 100% 67.6%;
+    --arsaranatitleinverse: 215 62.2% 30.4;
 
     --yellowmain: 48 100% 67.6%;
 

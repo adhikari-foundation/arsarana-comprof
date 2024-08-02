@@ -30,19 +30,19 @@ export default function IndexPage({ params }: any) {
 
   const carouselitems = [
     {
-      imgsource: '/images/10.jpg',
+      imgsource: '/images/tc_survey.jpg',
       title: 'TRAFFIC COUNTING SURVEY',
       ctatitle: 'Project Details',
       ctahref: '/project-1',
     },
     {
-      imgsource: '/images/proyek_modelling.jpeg',
+      imgsource: '/images/atp_wtp_survey.png',
       title: 'TRAFFIC MODELLING',
       ctatitle: 'More Details',
       ctahref: '/traffic-modelling',
     },
     {
-      imgsource: '/images/origin_destination.jpeg',
+      imgsource: '/images/od_survey.png',
       title: 'ORIGIN-DESTINATION SURVEY',
       ctatitle: '',
       ctahref: '',
@@ -54,48 +54,43 @@ export default function IndexPage({ params }: any) {
       id: 1,
       numbering: '01.',
       title: 'Transportation Engineering Design',
-      description:
-        'ARSARANA memiliki tim yang siap berkontribusi pada penyusunan desain infrastruktur transportasi seperti jalan raya, jalan rel, terminal, pelabuhan, dan bandar udara. ',
+      description: '',
     },
     {
       id: 2,
       numbering: '02.',
       title: 'Transport Feasibility Study',
-      description:
-        'ARSARANA memiliki tim yang siap berkontribusi pada penyusunan studi kelayakan infrastruktur transportasi seperti jalan raya, jalan rel, terminal, pelabuhan, dan bandar udara. ',
+      description: '',
     },
     {
       id: 3,
       numbering: '03.',
       title: 'Transport Management System',
-      description:
-        'ARSARANA memiliki tim yang siap berkontribusi pada sistem manajement transportasi (TMS) seperti jalan raya, jalan rel, terminal, pelabuhan, dan bandar udara. ',
+      description: '',
     },
     {
       id: 4,
       numbering: '04.',
       title: 'Transportation Survey and GIS',
-      description:
-        'ARSARANA memiliki tim yang siap berkontribusi pada kegiatan survey dan GIS seperti survey pada jalan raya, jalan rel, terminal, pelabuhan, dan bandar udara. ',
+      description: '',
     },
     {
       id: 5,
       numbering: '05.',
       title: 'Transportation Environment',
-      description:
-        'ARSARANA memiliki tim yang siap berkontribusi dalam kegiatan transportasi yang ramah lingkungan. Kegiatan transportasi dapat diidentifikasi menggunakan pendekatan yang sesuai untuk menyelaraskan kebijakan transportasi dan lingkungan.',
+      description: '',
     },
     {
       id: 6,
       numbering: `06.`,
       title: 'Transportation Technology',
-      description: `ARSARANA memiliki tim yang siap berkontribusi untuk memastikan bahwa teknologi dan infrastruktur dalam bidang transportasi memperhatikan aspek efisiensi, kemudahan dan keselamatan. `,
+      description: ``,
     },
     {
       id: 7,
       numbering: `${' '}${' '}${' '}`,
       title: 'See Details',
-      href: '#',
+      href: '/services',
       description: `${' '}${' '}${' '}`,
     },
   ];
@@ -286,7 +281,7 @@ export default function IndexPage({ params }: any) {
             <h1 className='text-arsaranatitleinverse mb-4 max-w-2xl text-4xl font-extrabold leading-none tracking-tight md:text-5xl xl:text-6xl'>
               Our History Begins
             </h1>
-            <p className='text-background mb-6 max-w-2xl font-light md:text-lg lg:mb-8 lg:text-xl'>
+            <p className='mb-6 max-w-2xl font-light text-black md:text-lg lg:mb-8 lg:text-xl'>
               PT Arneva Akasa Terra Magna (ARSARANA) was established in 2020 to
               bring new perspectives and solutions for transportation sector
               improvement in Indonesia. ARSARANA is a subsidiary of ADHIKARI
@@ -333,7 +328,7 @@ export default function IndexPage({ params }: any) {
             <Image
               height={400}
               width={550}
-              src='/images/fgd_pmc_brt.jpeg'
+              src='/icons/logo-arsarana.png'
               alt='mockup'
               className='rounded-none'
             />
@@ -341,12 +336,13 @@ export default function IndexPage({ params }: any) {
         </div>
       </section>
 
+      {/* Our Services */}
       <section
         id='service'
         key={4}
         className={clsxm(
           'flex max-h-fit min-h-[60vh] w-full flex-col overflow-hidden',
-          `bg-arsaranabackground bg-cover bg-no-repeat backdrop-blur-sm`
+          `bg-arsaranabackground items-center justify-center bg-cover bg-no-repeat backdrop-blur-sm`
         )}
       >
         <div className='my-8 inline-flex flex-col items-center justify-center p-4'>
@@ -371,9 +367,9 @@ export default function IndexPage({ params }: any) {
                         <div className='text-arsaranatitle text-xl font-bold'>
                           {item.title}
                         </div>
-                        <p className='text-foreground max-w-xs py-2 text-sm'>
+                        {/* <p className='text-foreground max-w-xs py-2 text-sm'>
                           {item.description}
-                        </p>
+                        </p> */}
                       </div>
                     </li>
                   );
@@ -411,6 +407,7 @@ export default function IndexPage({ params }: any) {
 
       {/* <ArticlesPage params={params} /> */}
 
+      {/* Our Experiences */}
       <section
         key={5}
         className={clsxm(
@@ -440,7 +437,7 @@ export default function IndexPage({ params }: any) {
                           <h2 className='text-arsaranatitleinverse mb-6 max-w-lg font-sans text-3xl font-bold tracking-tight sm:text-4xl sm:leading-none'>
                             {item.title}
                           </h2>
-                          <p className='text-background text-base md:text-lg'>
+                          <p className='text-base text-black md:text-lg'>
                             {' '}
                             {item.description}
                           </p>
@@ -481,7 +478,7 @@ export default function IndexPage({ params }: any) {
                           <h2 className='text-arsaranatitleinverse mb-6 mt-6 max-w-lg font-sans text-3xl font-bold tracking-tight sm:mt-0 sm:text-4xl sm:leading-none'>
                             {item.title}
                           </h2>
-                          <p className='text-background text-base md:text-lg'>
+                          <p className='text-base text-black md:text-lg'>
                             {item.description}
                           </p>
                         </div>

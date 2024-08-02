@@ -65,7 +65,7 @@ export default function OurTeamPage({ params }: any) {
                   <p className='text-arsaranatitle mb-2 text-xl font-bold'>
                     {team.fullname}
                   </p>
-                  <p className='text-arsaranaforeground text-base font-normal'>
+                  <p className='text-foreground text-base font-normal'>
                     {team.position}
                   </p>
                 </div>

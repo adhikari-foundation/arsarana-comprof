@@ -39,11 +39,16 @@ export default function TabloidPage({ params }: any) {
             {
               // eslint-disable-next-line @typescript-eslint/no-explicit-any
               params.tabloids.map((tabloid: any, index: number) => {
+                const bgimagepath = tabloid?.tabloidFileLocation.replace(
+                  'pdf',
+                  'png'
+                );
+
                 return (
                   <article
                     className='group relative h-64 w-full overflow-hidden rounded-lg bg-cover bg-center shadow-lg  transition duration-300 ease-in-out hover:shadow-2xl'
                     style={{
-                      backgroundImage: `url(${tabloid.tabloidCoverImage})`,
+                      backgroundImage: `url('/tabloid_cover/${bgimagepath}')`,
                     }}
                     key={index}
                   >

@@ -24,3 +24,22 @@ export function replaceWildcards(item: any, params: any) {
     return item.href;
   }
 }
+
+export function isParamValidNumber(
+  param: any,
+  startindex: number,
+  endindex: number,
+  defaultindex: number
+) {
+  if (param !== null && !isNaN(param)) {
+    param = parseInt(param, 10);
+
+    if (param < startindex || param > endindex) {
+      return defaultindex;
+    }
+
+    return param;
+  } else {
+    return defaultindex;
+  }
+}

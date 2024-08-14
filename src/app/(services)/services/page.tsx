@@ -3,10 +3,12 @@
 'use client';
 
 // import { useTheme } from 'next-themes';
-// import { revalidatePath } from 'next/cache';
 // import Image from 'next/image';
+import { isParamValidNumber } from '@utils/params-wildcard-utils';
 import clsx from 'clsx';
+// import { revalidatePath } from 'next/cache';
 import Image from 'next/image';
+import { useSearchParams } from 'next/navigation';
 import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
 
@@ -21,9 +23,15 @@ import { Button } from '@src/components/ui/default-ui-button';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default function OurServicesPage({ params }: any) {
-  // revalidatePath('/', 'layout');
+  // revalidatePath('/', 'page');
   const { theme } = useTheme();
   // const url = null;
+
+  const searchParams = useSearchParams();
+
+  let id = searchParams.get('id');
+  id = isParamValidNumber(id ?? 0, 0, 5, 0);
+
   const [mounted, setMounted] = useState(false);
   const [selectedService, setSelectedService] = useState<any | null>(null);
   logger(selectedService);
@@ -33,12 +41,12 @@ export default function OurServicesPage({ params }: any) {
   }, []);
 
   useEffect(() => {
-    if (!selectedService) {
-      setSelectedService(params.services[0]);
+    if (!selectedService && params?.services?.length > 0) {
+      setSelectedService(params.services[id ?? 0]);
     }
-  }, [params, selectedService]);
+  }, [params, selectedService, id]);
 
-  if (!mounted) {
+  if (!mounted || !params?.services) {
     return <></>;
   }
 
@@ -77,7 +85,8 @@ export default function OurServicesPage({ params }: any) {
           </div>
         </div>
       </section>
-      <section className='my-10 flex h-full w-full flex-row gap-8'>
+
+      <section className='mb-10 flex h-full w-full flex-row flex-wrap gap-8 bg-slate-200 px-10 py-10'>
         {params.services &&
           params.services.map((item: any) => {
             return (

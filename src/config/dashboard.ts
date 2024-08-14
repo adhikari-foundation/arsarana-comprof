@@ -18,6 +18,16 @@ export const dashboardConfig: DashboardConfig = {
       disabled: false,
     },
     {
+      title: 'Services',
+      href: '/services',
+      disabled: false,
+    },
+    {
+      title: 'Experiences',
+      href: '/experiences',
+      disabled: false,
+    },
+    {
       title: 'Careers',
       href: '/careers',
       disabled: false,
@@ -25,11 +35,6 @@ export const dashboardConfig: DashboardConfig = {
     {
       title: 'Tabloid',
       href: '/tabloid',
-    },
-    {
-      title: 'Services',
-      href: '/services',
-      disabled: false,
     },
     {
       title: 'Contact Us',

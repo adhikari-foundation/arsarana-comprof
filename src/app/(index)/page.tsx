@@ -3,6 +3,7 @@
 
 // import { useTheme } from 'next-themes';
 import Image from 'next/image';
+import Link from 'next/link';
 // import Link from 'next/link';
 import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
@@ -11,10 +12,11 @@ import clsxm from '@src/lib/clsxm';
 import logger from '@src/lib/logger';
 
 import IconButton from '@src/components/buttons/icon-button';
+import ImageCard from '@src/components/cards/image-card';
 import { Icons } from '@src/components/default-icons';
 import { SiteFooter } from '@src/components/layout/site-footer';
 // import UnderlineLink from '@src/components/links/underline-link';
-import UnstyledLink from '@src/components/links/unstyled-link';
+// import UnstyledLink from '@src/components/links/unstyled-link';
 import Typography from '@src/components/typography/default-typography';
 
 import TeamSection from './team';
@@ -37,13 +39,19 @@ export default function IndexPage({ params }: any) {
     },
     {
       imgsource: '/images/atp_wtp_survey.png',
-      title: 'TRAFFIC MODELLING',
+      title: 'ATP-WTP SURVEY',
       ctatitle: 'More Details',
       ctahref: '/traffic-modelling',
     },
     {
       imgsource: '/images/od_survey.png',
       title: 'ORIGIN-DESTINATION SURVEY',
+      ctatitle: '',
+      ctahref: '',
+    },
+    {
+      imgsource: '/images/road_inventory_survey.png',
+      title: 'ROAD INVENTORY SURVEY',
       ctatitle: '',
       ctahref: '',
     },
@@ -55,36 +63,42 @@ export default function IndexPage({ params }: any) {
       numbering: '01.',
       title: 'Transportation Engineering Design',
       description: '',
+      href: '/services?id=0',
     },
     {
       id: 2,
       numbering: '02.',
       title: 'Transport Feasibility Study',
       description: '',
+      href: '/services?id=1',
     },
     {
       id: 3,
       numbering: '03.',
       title: 'Transport Management System',
       description: '',
+      href: '/services?id=2',
     },
     {
       id: 4,
       numbering: '04.',
       title: 'Transportation Survey and GIS',
       description: '',
+      href: '/services?id=3',
     },
     {
       id: 5,
       numbering: '05.',
       title: 'Transportation Environment',
       description: '',
+      href: '/services?id=4',
     },
     {
       id: 6,
       numbering: `06.`,
       title: 'Transportation Technology',
       description: ``,
+      href: '/services?id=5',
     },
     {
       id: 7,
@@ -98,35 +112,59 @@ export default function IndexPage({ params }: any) {
   const experiencesitems = [
     {
       id: 1,
-      title: 'Traffic Volume Review Consultancy Services',
-      href: '/portfolio/traffic-volume-review-consultancy-services',
-      imagelocation: '/images/serang.jpeg',
+      title: 'Pavement Condition Index (PCI) Training',
+      href: '/experiences?id=0',
+      imagelocation: '/images/experiences/pci_training.png',
       description:
-        'Traffic Volume Review Consultancy Services for Serang Panimbang Toll Road 2023',
+        'ARSARANA trained PT Angkasa Pura II airside infrastructure personnel to improve their competency in preparing PCI reports at each branch office.',
     },
     {
       id: 2,
-      title: 'Transportation Consultancy Services for Government Cooperation',
-      href: '/portfolio/transportation-consultancy-services-for-government-corporation',
-      imagelocation: '/images/survey_blu_lrt_palembang.jpeg',
+      title: 'Road Network Modelling',
+      href: '/experiences?id=1',
+      imagelocation: '/images/experiences/road_network_modelling.png',
       description:
-        'Transportation Consultancy Services for Government Cooperation Projects with Business Entities (PPP) for the Provision of 60 Residential Towers for State Security Defense Personnel in WP 1A and 95 Residential Towers for State Civil Apparatus in WP 1B',
+        'ARSARANA support WIKA Serang-Panimbang in conducting a road network modeling on the Serang-Panimbang Toll Road.',
     },
     {
       id: 3,
-      title: 'Christmas and New Year Data Analysis Study',
-      href: '/portfolio/christmast-and-new-year-data-analysis-study',
-      imagelocation: '/images/proyek_modelling.jpeg',
+      title: 'Data Analysis Study',
+      href: '/experiences?id=2',
+      imagelocation: '/images/experiences/data_analysis_study.png',
       description:
-        'Christmas and New Year Data Analysis Study in Jabodetabek Area',
+        'ARSARANA assist the Jabodetabek Transportation Management Agency (BPTJ) to develop an integrated transportation system that makes it easier for BPTJ to determine transportation management policies in Greater Jakarta/Jabodetabek.',
     },
     {
       id: 4,
-      title: 'Project Management Consultant Bus Rapid Transit (PMC BRT)',
-      href: '/portfolio/project-management-consultant-bus-rapid-transit',
+      title: 'Key Performance Indicators (KPIs) Study',
+      href: '/experiences?id=3',
+      imagelocation: '/images/experiences/kpi_study.png',
+      description:
+        'ARSARANA supports Amethys Utama in the work of the Key Performance Indicators (KPIs) Study of the South Sumatera Light Railway Management Center (BPKARSS).',
+    },
+    {
+      id: 5,
+      title: 'Project Management Consultant (PMC)',
+      href: '/experiences?id=4',
+      imagelocation: '/images/experiences/pmc.png',
+      description:
+        'ARSARANA together with Egis International Indonesia supported the Directorate General of Land Transportation as Project Management Consultant of the Implementation Project of National Mass Transit Program (IPNMTP).',
+    },
+    {
+      id: 6,
+      title: 'Development Plan Study',
+      href: '/experiences?id=5',
+      imagelocation: '/images/experiences/development_plan_study.png',
+      description:
+        'ARSARANA supports the initiation of the development plan for the northern part of Jakarta through the preparation of the Marunda Area Development Plan Study.',
+    },
+    {
+      id: 7,
+      title: 'Feasibility Study for Railway Planning',
+      href: '/experiences?id=6',
       imagelocation: '/images/fgd_pmc_brt.jpeg',
       description:
-        'Project Management Consultant Bus Rapid Transit (PMC BRT) Medan and Bandung',
+        'ARSARANA together with Atlas Internasional Indah supported the Directorate General of Railways in preparing guidelines for railway planning in the Capital City of Nusantara (IKN).',
     },
   ];
 
@@ -355,49 +393,51 @@ export default function IndexPage({ params }: any) {
               servicesitems.map((item) => {
                 if (item.id < 7) {
                   return (
-                    <li className='flex' key={item.id}>
-                      <Typography
-                        variant='b1'
-                        color='arsarana-title'
-                        className='px-4 text-5xl font-extralight'
-                      >
-                        {item.numbering}
-                      </Typography>
-                      <div>
-                        <div className='text-arsaranatitle text-xl font-bold'>
-                          {item.title}
-                        </div>
-                        {/* <p className='text-foreground max-w-xs py-2 text-sm'>
-                          {item.description}
-                        </p> */}
-                      </div>
-                    </li>
-                  );
-                } else {
-                  return (
-                    <li
-                      className='flex items-end justify-end sm:col-span-2'
-                      key={item.id}
-                    >
-                      <Typography
-                        variant='b1'
-                        color='arsarana-title'
-                        className='px-4 text-5xl font-extralight'
-                      >
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                      </Typography>
-                      <div>
-                        <UnstyledLink
-                          href={item.href || '#'}
-                          className='mt-4 flex flex-row gap-4'
+                    <Link href={item.href} key={item.id}>
+                      <li className='flex'>
+                        <Typography
+                          variant='b1'
+                          color='arsarana-title'
+                          className='px-4 text-5xl font-extralight'
                         >
+                          {item.numbering}
+                        </Typography>
+                        <div>
                           <div className='text-arsaranatitle text-xl font-bold'>
                             {item.title}
                           </div>
-                          <Icons.arrowRight className='text-arsaranatitle mr-4 h-8 w-10' />
-                        </UnstyledLink>
-                      </div>
-                    </li>
+                          {/* <p className='text-foreground max-w-xs py-2 text-sm'>
+                          {item.description}
+                        </p> */}
+                        </div>
+                      </li>
+                    </Link>
+                  );
+                } else {
+                  return (
+                    // <Link href={item.href} key={item.id}>
+                    //   <li className='flex items-end justify-end sm:col-span-2'>
+                    //     <Typography
+                    //       variant='b1'
+                    //       color='arsarana-title'
+                    //       className='px-4 text-5xl font-extralight'
+                    //     >
+                    //       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    //     </Typography>
+                    //     <div>
+                    //       <UnstyledLink
+                    //         href={item.href || '#'}
+                    //         className='mt-4 flex flex-row gap-4'
+                    //       >
+                    //         <div className='text-arsaranatitle text-xl font-bold'>
+                    //           {item.title}
+                    //         </div>
+                    //         <Icons.arrowRight className='text-arsaranatitle mr-4 h-8 w-10' />
+                    //       </UnstyledLink>
+                    //     </div>
+                    //   </li>
+                    // </Link>
+                    <></>
                   );
                 }
               })}
@@ -411,11 +451,11 @@ export default function IndexPage({ params }: any) {
       <section
         key={5}
         className={clsxm(
-          'flex max-h-fit min-h-[60vh] w-full flex-col overflow-hidden',
+          'flex max-h-fit min-h-[60vh] w-full flex-row overflow-hidden',
           `bg-arsaranaforeground bg-cover bg-no-repeat backdrop-blur-sm`
         )}
       >
-        <div className='sticky z-50 my-20 w-full rounded-3xl px-6'>
+        <div className='sticky z-50 my-20 flex w-full flex-col items-center justify-center rounded-3xl px-6'>
           <Typography
             variant='j1'
             color='arsarana-title-inverse'
@@ -423,78 +463,24 @@ export default function IndexPage({ params }: any) {
           >
             Our Experiences
           </Typography>
-          {experiencesitems &&
-            experiencesitems.map((item) => {
-              if (item.id % 2 === 0) {
-                return (
-                  <div
-                    key={item.id}
-                    className='mx-auto px-4 py-16 sm:max-w-xl md:max-w-full md:px-24 lg:max-w-screen-xl lg:px-8 lg:py-20'
-                  >
-                    <div className='mb-10 flex w-full flex-col items-center justify-between lg:flex-row'>
-                      <div className='mb-16 lg:mb-0 lg:max-w-lg lg:pr-5'>
-                        <div className='mb-6 max-w-xl'>
-                          <h2 className='text-arsaranatitleinverse mb-6 max-w-lg font-sans text-3xl font-bold tracking-tight sm:text-4xl sm:leading-none'>
-                            {item.title}
-                          </h2>
-                          <p className='text-base text-black md:text-lg'>
-                            {' '}
-                            {item.description}
-                          </p>
-                        </div>
-                        {/* <div className='flex items-center space-x-3'>
-                          <Link href='/comingsoon'>
-                            <span className='mr-32 flex w-full items-center justify-center rounded-lg border border-2 bg-black object-cover object-top py-4 font-black leading-6 text-white sm:mr-64 sm:px-10'>
-                              Get Started
-                            </span>
-                          </Link>
-                        </div> */}
-                      </div>
-                      <Image
-                        alt='logo'
-                        width={450}
-                        height={450}
-                        src={item.imagelocation}
-                      />
-                    </div>
-                  </div>
-                );
-              } else {
-                return (
-                  <div
-                    key={item.id}
-                    className='mx-auto px-4 py-16 sm:max-w-xl md:max-w-full md:px-24 lg:max-w-screen-xl lg:px-8 lg:py-20'
-                  >
-                    <div className='mb-10 flex w-full flex-col items-center justify-between lg:flex-row'>
-                      <Image
-                        alt='logo'
-                        width={450}
-                        height={450}
-                        src={item.imagelocation}
-                      />
 
-                      <div className='mb-16 lg:mb-0 lg:max-w-lg lg:pr-5'>
-                        <div className='mb-6 max-w-xl'>
-                          <h2 className='text-arsaranatitleinverse mb-6 mt-6 max-w-lg font-sans text-3xl font-bold tracking-tight sm:mt-0 sm:text-4xl sm:leading-none'>
-                            {item.title}
-                          </h2>
-                          <p className='text-base text-black md:text-lg'>
-                            {item.description}
-                          </p>
-                        </div>
-                        {/* <div className='flex items-center space-x-3'>
-                          <Link href={item.href}>
-                            <span className='mr-32 flex w-full items-center justify-center rounded-lg border border-2 bg-black object-cover object-top py-4 font-black leading-6 text-white sm:mr-64 sm:px-10'>
-                              Get Started
-                            </span>
-                          </Link>
-                        </div> */}
-                      </div>
-                    </div>
+          <div className='grid w-full items-center justify-center gap-2 lg:w-[65vw] lg:grid-cols-3'>
+            {experiencesitems &&
+              experiencesitems.map((item) => {
+                return (
+                  <div className='mr-8 mt-8' key={item.id}>
+                    <Link href={item.href}>
+                      <ImageCard
+                        href={item.href}
+                        imagelocation={item.imagelocation}
+                        title={item.title}
+                        description={item.description}
+                      />
+                    </Link>
                   </div>
                 );
-              }
-            })}
+              })}
+          </div>
         </div>
       </section>
 

@@ -1,8 +1,8 @@
 import { dashboardConfig } from '@src/config/dashboard';
 import { Metadata } from 'next';
-import { revalidatePath } from 'next/cache';
 
-import { getAllServices } from '@src/lib/notionlib/services/services';
+// import { revalidatePath } from 'next/cache';
+import { getStaticServices } from '@src/lib/notionlib/services/services';
 
 import { MainNav } from '@src/components/layout/navigation/topnav/main-nav';
 // import { SiteFooter } from '@src/components/layout/site-footer';
@@ -22,8 +22,8 @@ export default async function OurServicesLayout({
   children,
   params,
 }: ContactPageProps) {
-  revalidatePath('/', 'layout');
-  const allServices = await getAllServices();
+  // revalidatePath('/', 'layout');
+  const allServices = await getStaticServices();
 
   params.services = allServices;
   return (

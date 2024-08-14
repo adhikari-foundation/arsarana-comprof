@@ -94,22 +94,22 @@ export function SiteFooter({ className }: React.HTMLAttributes<HTMLElement>) {
     {
       id: 1,
       title: 'Transport Engineering Design',
-      href: '/services',
+      href: '/services?id=0',
     },
     {
       id: 2,
       title: 'Transport Feasibility Study',
-      href: '/services',
+      href: '/services?id=1',
     },
     {
       id: 3,
       title: 'Transportation Management System',
-      href: '/services',
+      href: '/services?id=2',
     },
     {
       id: 4,
       title: 'Trasportation Survey and GIS',
-      href: '/services',
+      href: '/services?id=3',
     },
     // {
     //   id: 4,
@@ -125,12 +125,12 @@ export function SiteFooter({ className }: React.HTMLAttributes<HTMLElement>) {
     {
       id: 6,
       title: 'Transportation Technology',
-      href: '/services',
+      href: '/services?id=4',
     },
     {
       id: 5,
       title: 'Transportation Environment',
-      href: '/services',
+      href: '/services?id=5',
     },
   ];
 

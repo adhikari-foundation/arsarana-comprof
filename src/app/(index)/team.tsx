@@ -10,7 +10,7 @@ export default function TeamSection() {
   const teamitems = [
     {
       id: 1,
-      imgsource: '/images/saifullah.jpg',
+      imgsource: '/images/saifullah.png',
       firstname: 'M. Saifullah',
       lastname: '',
       position: 'Commissioner',
@@ -18,14 +18,14 @@ export default function TeamSection() {
     },
     {
       id: 2,
-      imgsource: '/images/noviana.jpeg',
+      imgsource: '/images/noviana.png',
       firstname: 'Noviana',
       position: 'President Director',
       expertise: 'PPP and Economic Specialist',
     },
     {
       id: 3,
-      imgsource: '/images/aris_wibowo.jpeg',
+      imgsource: '/images/aris_wibowo.png',
       firstname: 'Aris Wibowo',
       position: 'Director',
       expertise: 'Transport Engineering Specialist',

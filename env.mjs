@@ -24,6 +24,7 @@ export const env = createEnv({
     NOTION_TABLOID_DB_ID: z.string().min(1),
     NOTION_SERVICES_DB_ID: z.string().min(1),
     NOTION_EXPERIENCES_DB_ID: z.string().min(1),
+    NOTION_CAROUSELS_DB_ID: z.string().min(1),
   },
   client: {
     NEXT_PUBLIC_APP_URL: z.string().min(1),
@@ -51,5 +52,6 @@ export const env = createEnv({
     NOTION_TABLOID_DB_ID: process.env.NOTION_TABLOID_DB_ID,
     NOTION_SERVICES_DB_ID: process.env.NOTION_SERVICES_DB_ID,
     NOTION_EXPERIENCES_DB_ID: process.env.NOTION_EXPERIENCES_DB_ID,
+    NOTION_CAROUSELS_DB_ID: process.env.NOTION_CAROUSELS_DB_ID,
   },
 });

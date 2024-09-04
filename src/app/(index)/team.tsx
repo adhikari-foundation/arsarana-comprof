@@ -6,36 +6,21 @@ import { Icons } from '@src/components/default-icons';
 import UnstyledLink from '@src/components/links/unstyled-link';
 import Typography from '@src/components/typography/default-typography';
 
-export default function TeamSection() {
-  const teamitems = [
-    {
-      id: 1,
-      imgsource: '/images/saifullah.png',
-      firstname: 'M. Saifullah',
-      lastname: '',
-      position: 'Commissioner',
-      expertise: 'Transport and Financial Specialist',
-    },
-    {
-      id: 2,
-      imgsource: '/images/noviana.png',
-      firstname: 'Noviana',
-      position: 'President Director',
-      expertise: 'PPP and Economic Specialist',
-    },
-    {
-      id: 3,
-      imgsource: '/images/aris_wibowo.png',
-      firstname: 'Aris Wibowo',
-      position: 'Director',
-      expertise: 'Transport Engineering Specialist',
-    },
-  ];
+interface ITeamSection {
+  ln: string | null;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  selectedTeams?: any;
+}
+
+export default function TeamSection({ ln, selectedTeams }: ITeamSection) {
+  if (!selectedTeams) {
+    return <></>;
+  }
   return (
     <section
       key={6}
       className={clsxm(
-        'flex max-h-fit min-h-[60vh] w-full flex-col overflow-hidden',
+        'flex max-h-fit min-h-[50vh] w-full flex-col overflow-hidden',
         `bg-arsaranabackground bg-cover bg-no-repeat backdrop-blur-sm`
       )}
     >
@@ -43,7 +28,7 @@ export default function TeamSection() {
         <div className='container mx-auto px-6 md:px-12 xl:px-32'>
           <div className='mb-16 text-center'>
             <h2 className='text-arsaranatitle mb-4 text-center text-2xl font-bold md:text-4xl'>
-              Our Team
+              {ln && ln.toLowerCase() === 'id' ? 'Tim Ahli Kami' : 'Our Team'}
             </h2>
             {/* <p className='text-foreground lg:mx-auto lg:w-8/12'>
               ARSARANA has a pool of talents consisted of young and dynamic
@@ -53,13 +38,16 @@ export default function TeamSection() {
             </p> */}
           </div>
           <div className='grid items-center gap-12 md:grid-cols-3'>
-            {teamitems &&
-              teamitems.map((item) => {
+            {selectedTeams &&
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
+              selectedTeams.map((item: any) => {
                 return (
                   <div key={item.id} className='space-y-4 text-center'>
                     <Image
                       className='mx-auto h-64 w-64 rounded-none object-cover md:h-40 md:w-40 lg:h-64 lg:w-64'
-                      src={`${item.imgsource}`}
+                      src={
+                        `/images/teams/${item.id}.png` || '/images/avatar.png'
+                      }
                       alt={item.imgsource}
                       loading='lazy'
                       width='640'
@@ -72,7 +60,9 @@ export default function TeamSection() {
                         {item.firstname}
                       </h4>
                       <span className='text-foreground block text-sm'>
-                        {item.position} - {item.expertise}
+                        {ln && ln.toLowerCase() === 'id'
+                          ? `${item.posisi} - ${item.posisiTambahan}`
+                          : `${item.position} - ${item.positionExtra}`}
                       </span>
                     </div>
                   </div>
@@ -82,10 +72,10 @@ export default function TeamSection() {
             <div></div>
             <UnstyledLink
               className='text-arsaranatitle flex w-full flex-row items-center justify-end pr-8'
-              href='/our-team'
+              href={`/our-team?ln=${ln}`}
             >
               <Typography variant='h2' className='text-arsaranatitle'>
-                See All
+                {ln && ln.toLowerCase() === 'id' ? 'Lihat Semua' : 'See All'}
               </Typography>
               <Icons.arrowRight />
             </UnstyledLink>

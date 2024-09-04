@@ -1,10 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 // import logger from '@src/lib/logger';
+// import logger from '@src/lib/logger';
 import { notion } from '@src/lib/notion';
 
 import { env } from '@/env.mjs';
 
 const getPageMetaData = (service: any) => {
+  // logger(service);
   const objectservice = {
     // id: service.id,
     id: service.properties.id.title[0].plain_text,
@@ -14,8 +16,14 @@ const getPageMetaData = (service: any) => {
       service.properties.ServiceBottomDescription.rich_text[0].plain_text,
     serviceName: service.properties.ServiceName.rich_text[0].plain_text,
     serviceImage: service.properties.ServiceImage.files[0]?.file.url,
+    deskripsiServis: service.properties.DeskripsiServis.rich_text[0].plain_text,
+    deskripsiBawahServis:
+      service.properties.DeskripsiBawahServis.rich_text[0].plain_text,
+    namaServis: service.properties.NamaServis.rich_text[0].plain_text,
+    numbering: service.properties.Numbering.rich_text[0].plain_text,
+    href: service.properties.Href.rich_text[0].plain_text,
   };
-  // logger(service);
+  //
   return objectservice;
 };
 

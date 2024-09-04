@@ -1,3 +1,4 @@
+// eslint-disable-next-line simple-import-sort/imports
 import { dashboardConfig } from '@src/config/dashboard';
 import { Metadata } from 'next';
 
@@ -5,6 +6,7 @@ import { getAllExperiences } from '@src/lib/notionlib/experiences/experiences';
 
 // import { revalidatePath } from 'next/cache';
 import { MainNav } from '@src/components/layout/navigation/topnav/main-nav';
+import { getAllServices } from '@src/lib/notionlib/services/services';
 // import { SiteFooter } from '@src/components/layout/site-footer';
 
 interface ExperiencesPageProps {
@@ -24,7 +26,9 @@ export default async function ExperiencesLayout({
 }: ExperiencesPageProps) {
   // revalidatePath('/', 'layout');
   const allExperiences = await getAllExperiences();
+  const services = await getAllServices();
 
+  params.services = services;
   params.experiences = allExperiences;
   return (
     <>

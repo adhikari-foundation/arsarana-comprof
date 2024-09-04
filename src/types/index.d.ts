@@ -6,6 +6,7 @@ import { Icons } from '@src/components/default-icons';
 
 export type NavItem = {
   title: string;
+  title_id: string;
   href: string;
   disabled?: boolean;
 };
@@ -71,12 +72,6 @@ export type MarketingConfig = {
 
 export type DashboardConfig = {
   mainNav: MainNavItem[];
-  mainNavAuth: MainNavItem[];
-  sidebarNav: CustomSidebarNavItem[];
-  identitiesNav: CustomSidebarNavItem[];
-  identitiesIdNav: CustomSidebarNavItem[];
-  diariesNav: CustomSidebarNavItem[];
-  userNav: CustomSidebarNavItem[];
 };
 
 export type SubscriptionPlan = {

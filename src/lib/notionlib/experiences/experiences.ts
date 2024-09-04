@@ -17,6 +17,14 @@ const getPageMetaData = (experience: any) => {
     experienceTitle:
       experience.properties.ExperienceTitle.rich_text[0].plain_text,
     experienceImage: experience.properties.ImageName.rich_text[0].plain_text,
+    deskripsiPengalaman:
+      experience.properties.DeskripsiPengalaman.rich_text[0].plain_text,
+    namaProyek: experience.properties.NamaProyek.rich_text[0].plain_text,
+    klien: experience.properties.Klien.rich_text[0].plain_text,
+    lingkup: experience.properties.Lingkup.rich_text[0].plain_text,
+    judulPengalaman:
+      experience.properties.JudulPengalaman.rich_text[0].plain_text,
+    href: experience.properties.Href.rich_text[0].plain_text,
   };
   // logger(experience.properties.ExperienceBottomDescription);
   return objectexperience;

@@ -1,5 +1,6 @@
 'use client';
 
+import { US } from 'country-flag-icons/react/3x2';
 import { useTheme } from 'next-themes';
 import * as React from 'react';
 
@@ -26,7 +27,11 @@ export function ModeToggle() {
       </DropdownMenuTrigger>
       <DropdownMenuContent align='end' className='bg-background'>
         <DropdownMenuItem onClick={() => setTheme('light')}>
-          <Icons.sun className='text-arsaranatitle mr-2 h-4 w-4' />
+          {/* <Icons.sun className='text-arsaranatitle mr-2 h-4 w-4' /> */}
+          <US
+            title='United States'
+            className='text-arsaranatitle mr-2 h-4 w-4'
+          />
           <span className='text-arsaranatitle'>Light</span>
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => setTheme('dark')}>

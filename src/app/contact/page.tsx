@@ -2,7 +2,7 @@
 'use client';
 
 // import { useTheme } from 'next-themes';
-import { useTheme } from 'next-themes';
+import { useQueryState } from 'nuqs';
 import { useEffect, useState } from 'react';
 
 import { SiteFooter } from '@src/components/layout/site-footer';
@@ -111,12 +111,10 @@ function SocmedFooterSection() {
   );
 }
 
-export default function ContactPage() {
-  const { theme } = useTheme();
-  // const url = '/images/8.jpg';
-  const url2 = '/images/16-bgr.png';
-  // const url = null;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export default function ContactPage({ params }: any) {
   const [mounted, setMounted] = useState(false);
+  const [newLn, setNewLn] = useQueryState('ln');
 
   useEffect(() => {
     setMounted(true);
@@ -140,7 +138,9 @@ export default function ContactPage() {
         <div className='container mx-auto flex px-5 py-24'>
           <div className='relative z-10 mt-10 flex w-full flex-col rounded-lg bg-white p-8 shadow-md md:ml-auto md:mt-0 md:w-1/2 lg:w-1/3'>
             <h2 className='title-font mb-1 text-lg font-medium text-gray-900'>
-              Give us a visit at our office
+              {newLn && newLn.toLowerCase() === 'id'
+                ? 'Kunjungi kantor kami, '
+                : 'Give us a visit at our office'}
             </h2>
             <h1 className='title-font mb-1 text-lg font-medium text-gray-900'>
               Arsarana
@@ -166,7 +166,7 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
-      <SiteFooter />
+      <SiteFooter ln={newLn} services={params.services} />
     </>
   );
 }

@@ -1,9 +1,12 @@
 import { dashboardConfig } from '@src/config/dashboard';
 import { Metadata } from 'next';
 
-import { MainNav } from '@src/components/layout/navigation/topnav/main-nav';
+import { getAllCarousels } from '@src/lib/notionlib/carousels/carousels';
+import { getAllExperiences } from '@src/lib/notionlib/experiences/experiences';
+import { getSelectedTeams } from '@src/lib/notionlib/ourteams/team';
+import { getAllServices } from '@src/lib/notionlib/services/services';
 
-import { getAllPublished } from '../articles/(index)/layout';
+import { MainNav } from '@src/components/layout/navigation/topnav/main-nav';
 // import { SiteFooter } from '@src/components/layout/site-footer';
 
 interface IndexPageProps {
@@ -21,9 +24,15 @@ export default async function IndexLayout({
   children,
   params,
 }: IndexPageProps) {
-  const gg = await getAllPublished();
+  const selectedTeams = await getSelectedTeams();
+  const carousels = await getAllCarousels();
+  const services = await getAllServices();
+  const experiences = await getAllExperiences();
 
-  params.pages = gg;
+  params.selectedTeams = selectedTeams;
+  params.carousels = carousels;
+  params.services = services;
+  params.experiences = experiences;
   return (
     <>
       <div className='flex min-w-full flex-col items-center justify-between'>

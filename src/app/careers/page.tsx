@@ -2,18 +2,16 @@
 'use client';
 
 // import { useTheme } from 'next-themes';
-import { useTheme } from 'next-themes';
+import { useQueryState } from 'nuqs';
 import { useEffect, useState } from 'react';
 
 import { SiteFooter } from '@src/components/layout/site-footer';
 // import UnstyledLink from '@src/components/links/unstyled-link';
 
-export default function CareerPage() {
-  const { theme } = useTheme();
-  // const url = '/images/8.jpg';
-  const url2 = '/images/16-bgr.png';
-  // const url = null;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export default function CareerPage({ params }: any) {
   const [mounted, setMounted] = useState(false);
+  const [newLn, setNewLn] = useQueryState('ln');
 
   useEffect(() => {
     setMounted(true);
@@ -238,10 +236,14 @@ export default function CareerPage() {
               ></path>
             </svg>
             <p className='text-arsaranatitle mt-8 text-4xl font-bold capitalize tracking-wide'>
-              No job opening at this moment
+              {newLn && newLn.toLowerCase() == 'id'
+                ? 'Tidak ada lowongan pekerjaan untuk saat ini'
+                : 'No job opening at this moment'}
             </p>
             <p className='text-arsaranatitle mt-4 text-xl uppercase'>
-              Please come back later...
+              {newLn && newLn.toLowerCase() == 'id'
+                ? 'Silahkan cek di lain waktu...'
+                : 'Please come back later...'}
             </p>
           </div>
           {/* <div className='w-full border-t border-gray-300 py-4'>
@@ -284,7 +286,7 @@ export default function CareerPage() {
           </div> */}
         </div>
       </section>
-      <SiteFooter />
+      <SiteFooter ln={newLn} services={params.services} />
     </>
   );
 }

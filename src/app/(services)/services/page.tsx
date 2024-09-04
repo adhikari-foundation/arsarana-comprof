@@ -9,12 +9,12 @@ import clsx from 'clsx';
 // import { revalidatePath } from 'next/cache';
 import Image from 'next/image';
 import { useSearchParams } from 'next/navigation';
-import { useTheme } from 'next-themes';
+import { useQueryState } from 'nuqs';
 import { useEffect, useState } from 'react';
 
 import clsxm from '@src/lib/clsxm';
-import logger from '@src/lib/logger';
 
+// import logger from '@src/lib/logger';
 import { SiteFooter } from '@src/components/layout/site-footer';
 import Typography from '@src/components/typography/default-typography';
 // import IconButton from '@src/components/buttons/icon-button';
@@ -24,17 +24,22 @@ import { Button } from '@src/components/ui/default-ui-button';
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default function OurServicesPage({ params }: any) {
   // revalidatePath('/', 'page');
-  const { theme } = useTheme();
+  const [pageLn, setPageLn] = useQueryState('ln');
   // const url = null;
 
   const searchParams = useSearchParams();
 
   let id = searchParams.get('id');
-  id = isParamValidNumber(id ?? 0, 0, 5, 0);
+  id = isParamValidNumber(
+    id ?? 0,
+    0,
+    params?.services?.length ? params.services.length - 1 : 7,
+    0
+  );
 
   const [mounted, setMounted] = useState(false);
   const [selectedService, setSelectedService] = useState<any | null>(null);
-  logger(selectedService);
+  // logger(selectedService);
 
   useEffect(() => {
     setMounted(true);
@@ -50,7 +55,7 @@ export default function OurServicesPage({ params }: any) {
     return <></>;
   }
 
-  logger(params.services);
+  // logger(params.services);
 
   return (
     <>
@@ -77,7 +82,9 @@ export default function OurServicesPage({ params }: any) {
                     color='main'
                     className='my-3 text-lg xl:text-4xl'
                   >
-                    OUR SERVICES
+                    {pageLn && pageLn.toLowerCase() === 'id'
+                      ? 'SERVIS KAMI'
+                      : 'OUR SERVICES'}
                   </Typography>
                 </div>
               </div>
@@ -101,7 +108,9 @@ export default function OurServicesPage({ params }: any) {
                   setSelectedService(item);
                 }}
               >
-                {item.serviceName}
+                {pageLn && pageLn.toLowerCase() === 'id'
+                  ? item.namaServis
+                  : item.serviceName}
               </Button>
             );
           })}
@@ -112,10 +121,14 @@ export default function OurServicesPage({ params }: any) {
           {selectedService ? (
             <>
               <div className='text-arsaranatitle text-3xl font-bold'>
-                {selectedService.serviceName}
+                {pageLn && pageLn.toLowerCase() === 'id'
+                  ? selectedService.namaServis
+                  : selectedService.serviceName}
               </div>
               <p className='text-foreground my-4 max-w-4xl py-2 text-lg'>
-                {selectedService.serviceDescription}
+                {pageLn && pageLn.toLowerCase() === 'id'
+                  ? selectedService.deskripsiServis
+                  : selectedService.serviceDescription}
               </p>
               <Image
                 width={600}
@@ -124,13 +137,18 @@ export default function OurServicesPage({ params }: any) {
                 // objectFit='none'
                 className='bg-foreground h-auto w-auto'
                 src={
-                  `/images/services/${selectedService.serviceName}.png` ||
-                  '/images/avatar.png'
+                  `/images/services/${
+                    pageLn && pageLn.toLowerCase() === 'id'
+                      ? selectedService.namaServis
+                      : selectedService.serviceName
+                  }.png` || '/images/avatar.png'
                 }
                 alt='photo'
               />
               <p className='text-foreground my-4 max-w-4xl py-2 text-lg'>
-                {selectedService.serviceBottomDescription}
+                {pageLn && pageLn.toLowerCase() === 'id'
+                  ? selectedService.deskripsiBawahServis
+                  : selectedService.serviceBottomDescription}
               </p>
             </>
           ) : (
@@ -138,7 +156,7 @@ export default function OurServicesPage({ params }: any) {
           )}
         </div>
       </section>
-      <SiteFooter />
+      <SiteFooter ln={pageLn} services={params.services} />
     </>
   );
 }

@@ -4,11 +4,14 @@
 import Image from 'next/image';
 import { useSelectedLayoutSegment } from 'next/navigation';
 import { useTheme } from 'next-themes';
+import { useQueryState } from 'nuqs';
 import * as React from 'react';
 
+// import logger from '@src/lib/logger';
 import { clsxm } from '@src/lib/utils';
 
 import { Icons } from '@src/components/default-icons';
+import { LanguageToggle } from '@src/components/language-toggle';
 import UnstyledLink from '@src/components/links/unstyled-link';
 
 // import { ModeToggle } from '@src/components/mode-toggle';
@@ -30,9 +33,17 @@ export function MainNav({ items, children }: MainNavProps) {
   const segment = useSelectedLayoutSegment();
   const [showMobileMenu, setShowMobileMenu] = React.useState<boolean>(false);
 
+  // eslint-disable-next-line unused-imports/no-unused-vars
+  const [ln, setLn] = useQueryState('ln');
+
+  // logger(`wew, new ln in navigation: ${ln}`);
+
   return (
     <div className='flex w-full items-center justify-between'>
-      <UnstyledLink href='/' className='hidden items-center space-x-2 md:flex'>
+      <UnstyledLink
+        href={`/?ln=${ln}`}
+        className='hidden items-center space-x-2 md:flex'
+      >
         <Image
           src={theme === 'dark' ? logo_kuning : logo}
           alt='logo'
@@ -49,7 +60,7 @@ export function MainNav({ items, children }: MainNavProps) {
             {items?.map((item, index) => (
               <UnstyledLink
                 key={index}
-                href={item.disabled ? '#' : item.href}
+                href={item.disabled ? '#' : `${item.href}?ln=${ln}`}
                 className={clsxm(
                   'hover:text-arsaranatitle/80 text-arsaranatitle flex items-center text-lg font-medium transition-colors sm:text-sm',
                   item.href.startsWith(`/${segment}`)
@@ -59,12 +70,12 @@ export function MainNav({ items, children }: MainNavProps) {
                     'text-arsaranatitle cursor-not-allowed opacity-80'
                 )}
               >
-                {item.title}
+                {ln && ln.toLowerCase() === 'id' ? item.title_id : item.title}
               </UnstyledLink>
             ))}
           </nav>
         ) : null}
-        {/* <ModeToggle /> */}
+        <LanguageToggle />
       </div>
 
       <button

@@ -70,7 +70,7 @@ const getPageMetaData = (post: any) => {
   };
 };
 
-export const getAllPublished = async () => {
+const getAllPublished = async () => {
   const posts = await notion.databases.query({
     database_id: env.NOTION_ARTICLE_DB_ID,
     filter: {

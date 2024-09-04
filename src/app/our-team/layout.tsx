@@ -2,7 +2,8 @@ import { dashboardConfig } from '@src/config/dashboard';
 import { Metadata } from 'next';
 import { revalidatePath } from 'next/cache';
 
-import { getStaticTeams } from '@src/lib/notionlib/ourteams/team';
+import { getAllTeams } from '@src/lib/notionlib/ourteams/team';
+import { getAllServices } from '@src/lib/notionlib/services/services';
 
 import { MainNav } from '@src/components/layout/navigation/topnav/main-nav';
 // import { SiteFooter } from '@src/components/layout/site-footer';
@@ -23,9 +24,11 @@ export default async function OurTeamLayout({
   params,
 }: ContactPageProps) {
   revalidatePath('/', 'layout');
-  const allTeams = await getStaticTeams();
+  const allTeams = await getAllTeams();
+  const services = await getAllServices();
 
-  params.teamMembers = allTeams.teamMembers;
+  params.services = services;
+  params.teamMembers = allTeams;
   return (
     <>
       <div className='flex min-w-full flex-col items-center justify-between'>

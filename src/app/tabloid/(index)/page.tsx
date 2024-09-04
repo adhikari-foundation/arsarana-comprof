@@ -2,7 +2,7 @@
 'use client';
 
 // import Link from 'next/link';
-import { useTheme } from 'next-themes';
+import { useQueryState } from 'nuqs';
 import { useEffect, useState } from 'react';
 
 // import clsxm from '@src/lib/clsxm';
@@ -14,8 +14,7 @@ import UnstyledLink from '@src/components/links/unstyled-link';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default function TabloidPage({ params }: any) {
-  const { theme } = useTheme();
-
+  const [newLn, setNewLn] = useQueryState('ln');
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -33,7 +32,9 @@ export default function TabloidPage({ params }: any) {
       <section className='mx-auto mb-12 mt-10 max-w-7xl px-4 sm:px-6 lg:px-4'>
         <article>
           <h2 className='text-arsaranatitle text-2xl font-extrabold'>
-            Tabloid Terbaru
+            {newLn && newLn.toLowerCase() === 'id'
+              ? 'Tabloid Terbaru'
+              : 'Latest Tabloid'}
           </h2>
           <section className='mt-6 grid grid-cols-1 gap-x-6 gap-y-8 md:grid-cols-1 lg:grid-cols-3'>
             {
@@ -72,7 +73,7 @@ export default function TabloidPage({ params }: any) {
           </section>
         </article>
       </section>
-      <SiteFooter />
+      <SiteFooter ln={newLn} services={params.services} />
     </>
   );
 }

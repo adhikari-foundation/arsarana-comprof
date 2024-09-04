@@ -9,7 +9,7 @@ import { isParamValidNumber } from '@utils/params-wildcard-utils';
 import clsx from 'clsx';
 import Image from 'next/image';
 import { useSearchParams } from 'next/navigation';
-import { useTheme } from 'next-themes';
+import { useQueryState } from 'nuqs';
 import { useEffect, useState } from 'react';
 
 import clsxm from '@src/lib/clsxm';
@@ -38,13 +38,18 @@ function renderScopes(scopes: string) {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default function ExperiencesPage({ params }: any) {
   // revalidatePath('/', 'layout');
-  const { theme } = useTheme();
+  const [newLn, setNewLn] = useQueryState('ln');
   // const url = null;
 
   const searchParams = useSearchParams();
 
   let id = searchParams.get('id');
-  id = isParamValidNumber(id ?? 0, 0, 6, 0);
+  id = isParamValidNumber(
+    id ?? 0,
+    0,
+    params?.experiences?.length ? params.experiences.length - 1 : 6,
+    0
+  );
 
   const [mounted, setMounted] = useState(false);
   const [selectedExperiences, setSelectedExperiences] = useState<any | null>(
@@ -62,7 +67,7 @@ export default function ExperiencesPage({ params }: any) {
     }
   }, [params, selectedExperiences, id]);
 
-  if (!mounted || !params?.experiences) {
+  if (!mounted) {
     return <></>;
   }
 
@@ -93,7 +98,9 @@ export default function ExperiencesPage({ params }: any) {
                     color='main'
                     className='my-3 text-lg xl:text-4xl'
                   >
-                    OUR EXPERIENCES
+                    {newLn && newLn.toLocaleLowerCase() === 'id'
+                      ? 'PENGALAMAN KAMI'
+                      : 'OUR EXPERIENCES'}
                   </Typography>
                 </div>
               </div>
@@ -118,7 +125,9 @@ export default function ExperiencesPage({ params }: any) {
                   setSelectedExperiences(item);
                 }}
               >
-                {item.experienceTitle}
+                {newLn && newLn.toLocaleLowerCase() === 'id'
+                  ? item.judulPengalaman
+                  : item.experienceTitle}
               </Button>
             );
           })}
@@ -129,10 +138,14 @@ export default function ExperiencesPage({ params }: any) {
           {selectedExperiences ? (
             <>
               <div className='text-arsaranatitle text-3xl font-bold'>
-                {selectedExperiences.experienceTitle}
+                {newLn && newLn.toLocaleLowerCase() === 'id'
+                  ? selectedExperiences.judulPengalaman
+                  : selectedExperiences.experienceTitle}
               </div>
               <p className='text-foreground my-4 max-w-4xl py-2 text-lg'>
-                {selectedExperiences.experienceDescription}
+                {newLn && newLn.toLocaleLowerCase() === 'id'
+                  ? selectedExperiences.deskripsiPengalaman
+                  : selectedExperiences.experienceTitle}
               </p>
               {selectedExperiences.experienceImage &&
                 selectedExperiences.experienceImage !== '-' && (
@@ -150,16 +163,38 @@ export default function ExperiencesPage({ params }: any) {
                   />
                 )}
               <p className='text-foreground my-4 max-w-4xl py-2 text-lg'>
-                <b>Project Name: </b>
-                {selectedExperiences.projectName}
+                <b>
+                  {newLn && newLn.toLocaleLowerCase() === 'id'
+                    ? 'Nama Proyek: '
+                    : 'Project Name: '}
+                </b>
+                {newLn && newLn.toLocaleLowerCase() === 'id'
+                  ? selectedExperiences.namaProyek
+                  : selectedExperiences.projectName}
               </p>
               <p className='text-foreground my-4 max-w-4xl py-2 text-lg'>
-                <b>Client: </b>
-                {selectedExperiences.client}
+                <b>
+                  {newLn && newLn.toLocaleLowerCase() === 'id'
+                    ? 'Klien: '
+                    : 'Client: '}
+                </b>
+                {newLn && newLn.toLocaleLowerCase() === 'id'
+                  ? selectedExperiences.klien
+                  : selectedExperiences.client}
               </p>
               <p className='text-foreground my-4 max-w-4xl py-2 text-lg'>
-                <b>Scopes: </b>
-                <p>{renderScopes(selectedExperiences.scopes)}</p>
+                <b>
+                  {newLn && newLn.toLocaleLowerCase() === 'id'
+                    ? 'Lingkup: '
+                    : 'Scopes: '}
+                </b>
+                <p>
+                  {renderScopes(
+                    newLn && newLn.toLocaleLowerCase() === 'id'
+                      ? selectedExperiences.lingkup
+                      : selectedExperiences.scopes
+                  )}
+                </p>
               </p>
             </>
           ) : (
@@ -167,7 +202,7 @@ export default function ExperiencesPage({ params }: any) {
           )}
         </div>
       </section>
-      <SiteFooter />
+      <SiteFooter ln={newLn} services={params.services} />
     </>
   );
 }

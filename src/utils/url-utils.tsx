@@ -26,3 +26,8 @@ export function isValidApiMethod(method: string): boolean {
   // Check if the uppercaseMethod exists in the list of valid methods
   return validMethods.includes(uppercaseMethod);
 }
+
+export function isValidLanguageCode(value: unknown): boolean {
+  // Check if the value is a string and if it's either 'id' or 'en'
+  return typeof value === 'string' && (value === 'id' || value === 'en');
+}

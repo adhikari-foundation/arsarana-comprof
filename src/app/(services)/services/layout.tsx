@@ -2,7 +2,7 @@ import { dashboardConfig } from '@src/config/dashboard';
 import { Metadata } from 'next';
 
 // import { revalidatePath } from 'next/cache';
-import { getStaticServices } from '@src/lib/notionlib/services/services';
+import { getAllServices } from '@src/lib/notionlib/services/services';
 
 import { MainNav } from '@src/components/layout/navigation/topnav/main-nav';
 // import { SiteFooter } from '@src/components/layout/site-footer';
@@ -23,7 +23,8 @@ export default async function OurServicesLayout({
   params,
 }: ContactPageProps) {
   // revalidatePath('/', 'layout');
-  const allServices = await getStaticServices();
+
+  const allServices = await getAllServices();
 
   params.services = allServices;
   return (

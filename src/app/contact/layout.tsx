@@ -1,11 +1,15 @@
 import { dashboardConfig } from '@src/config/dashboard';
 import { Metadata } from 'next';
 
+import { getAllServices } from '@src/lib/notionlib/services/services';
+
 import { MainNav } from '@src/components/layout/navigation/topnav/main-nav';
 // import { SiteFooter } from '@src/components/layout/site-footer';
 
 interface ContactPageProps {
   children: React.ReactNode;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  params: any;
 }
 
 export const metadata: Metadata = {
@@ -13,7 +17,13 @@ export const metadata: Metadata = {
   description: 'Arsarana Company Profile Website',
 };
 
-export default async function ContactLayout({ children }: ContactPageProps) {
+export default async function ContactLayout({
+  children,
+  params,
+}: ContactPageProps) {
+  const services = await getAllServices();
+
+  params.services = services;
   return (
     <>
       <div className='flex min-w-full flex-col items-center justify-between'>

@@ -14,162 +14,42 @@ export const dashboardConfig: DashboardConfig = {
     // },
     {
       title: 'Our Team',
+      title_id: 'Tim Kami',
       href: '/our-team',
       disabled: false,
     },
     {
       title: 'Services',
+      title_id: 'Servis',
       href: '/services',
       disabled: false,
     },
     {
       title: 'Experiences',
+      title_id: 'Pengalaman',
       href: '/experiences',
       disabled: false,
     },
     {
       title: 'Careers',
+      title_id: 'Karir',
       href: '/careers',
       disabled: false,
     },
     {
       title: 'Tabloid',
+      title_id: 'Tabloid',
       href: '/tabloid',
     },
     {
       title: 'Contact Us',
+      title_id: 'Kontak',
       href: '/contact',
     },
-  ],
-  mainNavAuth: [
     {
-      title: 'Account',
-      href: '/user',
-    },
-    {
-      title: 'Identities',
-      href: '/identities',
-    },
-    {
-      title: 'Documentation',
-      href: '/docs',
-      disabled: true,
-    },
-    {
-      title: 'Support',
-      href: '/support',
-      disabled: true,
-    },
-  ],
-  sidebarNav: [
-    {
-      category: 'Pages',
-      catdesc:
-        'Manage your posts here by select each category or type of the pages.',
-      items: [
-        {
-          title: 'Public for everyone',
-          href: '/dashboard',
-          icon: 'post',
-        },
-        {
-          title: 'Shared to you',
-          href: '/dashboard/shared',
-          icon: 'sharedfile',
-        },
-        {
-          title: 'Private for you',
-          href: '/dashboard/private',
-          icon: 'privatepost',
-        },
-        {
-          title: 'Page requests',
-          href: '/dashboard/requests',
-          icon: 'notifications',
-        },
-      ],
-    },
-  ],
-  identitiesNav: [
-    {
-      category: 'Identities',
-      catdesc: 'Manage your identities here',
-      items: [
-        {
-          title: 'List identities',
-          href: '/identities',
-          icon: 'post',
-        },
-        {
-          title: 'Identity request',
-          href: '/identities/requests',
-          icon: 'sharedfile',
-          disabled: true,
-        },
-        {
-          title: 'Request history',
-          href: '/identities/requests/history',
-          icon: 'privatepost',
-          disabled: true,
-        },
-      ],
-    },
-  ],
-  identitiesIdNav: [
-    {
-      category: 'Your identity',
-      catdesc: 'Here is your identity info',
-      items: [
-        {
-          title: 'Identity info',
-          href: '/identities/[identitiesid]',
-          icon: 'post',
-        },
-      ],
-    },
-  ],
-  diariesNav: [
-    {
-      category: 'Diaries',
-      catdesc: 'Manage your diaries here',
-      items: [
-        {
-          title: 'List identities',
-          href: '/identities',
-          icon: 'post',
-        },
-        {
-          title: 'Identity request',
-          href: '/identities/requests',
-          icon: 'sharedfile',
-          disabled: true,
-        },
-        {
-          title: 'Request history',
-          href: '/identities/requests/history',
-          icon: 'privatepost',
-          disabled: true,
-        },
-      ],
-    },
-  ],
-  userNav: [
-    {
-      category: 'Account',
-      catdesc: 'Manage your account here',
-      items: [
-        {
-          title: 'Your accounts',
-          href: '/user',
-          icon: 'user',
-        },
-        {
-          title: 'Account relationships',
-          href: '/user/relationships',
-          icon: 'users',
-          disabled: true,
-        },
-      ],
+      title: 'Profile',
+      title_id: 'Profil',
+      href: '/profiles',
     },
   ],
 };

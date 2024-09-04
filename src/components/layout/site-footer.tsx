@@ -6,44 +6,6 @@ import { Icons } from '../default-icons';
 import UnstyledLink from '../links/unstyled-link';
 // import { ModeToggle } from '@src/components/mode-toggle';
 
-function DownloadPortfolioSection() {
-  return (
-    <div className='bg-arsaranaforeground w-full'>
-      <div className='mx-auto max-w-2xl py-10 text-white'>
-        <div className='text-center'>
-          <h3 className='text-arsaranatitleinverse mb-3 text-3xl'>
-            {' '}
-            Download Our Profile{' '}
-          </h3>
-          <p className='text-arsaranatitleinverse'>
-            {' '}
-            See more on our company profile by clicking download button below
-          </p>
-          <div className='text-arsaranatitleinverse my-10 flex justify-center hover:cursor-pointer'>
-            <UnstyledLink
-              className='border-arsaranabackground mx-2 flex w-auto items-center rounded-lg border px-4 py-2'
-              href='/files/comprof.pdf'
-              target='_blank'
-            >
-              {/* <UnstyledLink
-                href='/files/comprof.pdf'
-                target='_blank'
-                rel='noopener noreferrer'
-              > */}
-              <Icons.download />
-              <div className='ml-3 text-left'>
-                <p className='text-lg font-bold'>Download on </p>
-                <p className='text-sm font-bold md:text-base'> PDF </p>
-              </div>
-              {/* </UnstyledLink> */}
-            </UnstyledLink>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
 function SocmedFooterSection() {
   return (
     <div className='text-arsaranatitle mt-8 flex flex-col gap-4'>
@@ -63,8 +25,15 @@ function SocmedFooterSection() {
   );
 }
 
+interface ISiteFooter {
+  className?: string;
+  ln: string | null;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  services?: any | null;
+}
+
 // eslint-disable-next-line unused-imports/no-unused-vars
-export function SiteFooter({ className }: React.HTMLAttributes<HTMLElement>) {
+export function SiteFooter({ className, ln, services }: ISiteFooter) {
   const { theme } = useTheme();
 
   const footercompanyitems = [
@@ -76,61 +45,20 @@ export function SiteFooter({ className }: React.HTMLAttributes<HTMLElement>) {
     {
       id: 2,
       title: 'Meet the Team',
+      title_id: 'Tim Ahli',
       href: '/our-team',
     },
     {
       id: 3,
       title: 'Tabloid',
+      title_id: 'Tabloid',
       href: '/tabloid',
     },
     {
       id: 4,
       title: 'Careers',
+      title_id: 'Karir',
       href: '#',
-    },
-  ];
-
-  const footerservicesitems = [
-    {
-      id: 1,
-      title: 'Transport Engineering Design',
-      href: '/services?id=0',
-    },
-    {
-      id: 2,
-      title: 'Transport Feasibility Study',
-      href: '/services?id=1',
-    },
-    {
-      id: 3,
-      title: 'Transportation Management System',
-      href: '/services?id=2',
-    },
-    {
-      id: 4,
-      title: 'Trasportation Survey and GIS',
-      href: '/services?id=3',
-    },
-    // {
-    //   id: 4,
-    //   title: 'Transport Transaction Advisory',
-    //   href: '#',
-    // },
-    // {
-    //   id: 5,
-    //   title:
-    //     'Monitoring and Evaluation for Transportation Facilities and Operation',
-    //   href: '#',
-    // },
-    {
-      id: 6,
-      title: 'Transportation Technology',
-      href: '/services?id=4',
-    },
-    {
-      id: 5,
-      title: 'Transportation Environment',
-      href: '/services?id=5',
     },
   ];
 
@@ -138,7 +66,14 @@ export function SiteFooter({ className }: React.HTMLAttributes<HTMLElement>) {
     {
       id: 1,
       title: 'Contact',
+      title_id: 'Kontak',
       href: '/contact',
+    },
+    {
+      id: 2,
+      title: 'Profile',
+      title_id: 'Profil',
+      href: '/profiles',
     },
     // {
     //   id: 3,
@@ -161,7 +96,6 @@ export function SiteFooter({ className }: React.HTMLAttributes<HTMLElement>) {
   // ];
   return (
     <footer className='bg-arsaranabackground'>
-      <DownloadPortfolioSection />
       <div className='mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8'>
         <div className='grid grid-cols-1 gap-8 lg:grid-cols-3'>
           <div>
@@ -183,7 +117,9 @@ export function SiteFooter({ className }: React.HTMLAttributes<HTMLElement>) {
           </div>
           <div className='grid grid-cols-1 gap-8 sm:grid-cols-2 lg:col-span-2 lg:grid-cols-3'>
             <div>
-              <p className='text-arsaranatitle font-medium'>Company</p>
+              <p className='text-arsaranatitle font-medium'>
+                {ln && ln.toLowerCase() === 'id' ? 'Perusahaan' : 'Company'}
+              </p>
               <nav className='text-foreground mt-4 flex flex-col space-y-2 text-sm'>
                 {footercompanyitems &&
                   footercompanyitems.map((item) => {
@@ -191,35 +127,44 @@ export function SiteFooter({ className }: React.HTMLAttributes<HTMLElement>) {
                       <UnstyledLink
                         key={item.id}
                         className='hover:opacity-75'
-                        href={item.href}
+                        href={`${item.href}?ln=${ln}`}
                       >
                         {' '}
-                        {item.title}{' '}
+                        {ln && ln.toLowerCase() === 'id'
+                          ? item.title_id
+                          : item.title}{' '}
                       </UnstyledLink>
                     );
                   })}
               </nav>
             </div>
             <div>
-              <p className='text-arsaranatitle font-medium'>Services</p>
+              <p className='text-arsaranatitle font-medium'>
+                {ln && ln.toLowerCase() === 'id' ? 'Servis' : 'Service'}
+              </p>
               <nav className='text-foreground mt-4 flex flex-col space-y-2 text-sm'>
-                {footerservicesitems &&
-                  footerservicesitems.map((item) => {
+                {services &&
+                  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                  services.map((item: any) => {
                     return (
                       <UnstyledLink
                         key={item.id}
                         className='hover:opacity-75'
-                        href={item.href}
+                        href={`${item.href}&ln=${ln}`}
                       >
                         {' '}
-                        {item.title}{' '}
+                        {ln && ln.toLowerCase() === 'id'
+                          ? item.namaServis
+                          : item.serviceName}{' '}
                       </UnstyledLink>
                     );
                   })}
               </nav>
             </div>
             <div>
-              <p className='text-arsaranatitle font-medium'>Helpful Links</p>
+              <p className='text-arsaranatitle font-medium'>
+                {ln && ln.toLowerCase() === 'id' ? 'Link' : 'Helpful Links'}
+              </p>
               <nav className='text-foreground mt-4 flex flex-col space-y-2 text-sm'>
                 {footerhelpfullinksitems &&
                   footerhelpfullinksitems.map((item) => {
@@ -227,10 +172,12 @@ export function SiteFooter({ className }: React.HTMLAttributes<HTMLElement>) {
                       <UnstyledLink
                         key={item.id}
                         className='hover:opacity-75'
-                        href={item.href}
+                        href={`${item.href}?ln=${ln}`}
                       >
                         {' '}
-                        {item.title}{' '}
+                        {ln && ln.toLowerCase() === 'id'
+                          ? item.title_id
+                          : item.title}{' '}
                       </UnstyledLink>
                     );
                   })}

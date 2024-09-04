@@ -1,6 +1,7 @@
 import { dashboardConfig } from '@src/config/dashboard';
 import { Metadata } from 'next';
 
+import { getAllServices } from '@src/lib/notionlib/services/services';
 // import logger from '@src/lib/logger';
 import { getAllTabloids } from '@src/lib/notionlib/tabloids/tabloid';
 
@@ -24,9 +25,9 @@ export default async function TabloidLayout({
   params,
 }: TabloidPageProps) {
   const tabloids = await getAllTabloids();
+  const services = await getAllServices();
 
-  // logger(tabloids);
-
+  params.services = services;
   params.tabloids = tabloids;
   return (
     <>

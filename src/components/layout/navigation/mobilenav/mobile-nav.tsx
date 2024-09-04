@@ -1,4 +1,5 @@
 import { siteConfig } from '@src/config/site';
+import { useQueryState } from 'nuqs';
 import * as React from 'react';
 
 import { clsxm } from '@src/lib/utils';
@@ -16,6 +17,8 @@ interface MobileNavProps {
 
 export function MobileNav({ items, children }: MobileNavProps) {
   useLockBody();
+  // eslint-disable-next-line unused-imports/no-unused-vars
+  const [ln, setLn] = useQueryState('ln');
 
   return (
     <div
@@ -24,7 +27,10 @@ export function MobileNav({ items, children }: MobileNavProps) {
       )}
     >
       <div className='bg-background text-popover-foreground relative z-20 grid gap-6 rounded-md p-4 shadow-md'>
-        <UnstyledLink href='/' className='flex items-center space-x-2'>
+        <UnstyledLink
+          href={`/?ln=${ln}`}
+          className='flex items-center space-x-2'
+        >
           <Icons.logo />
           <span className='font-bold'>{siteConfig.name}</span>
         </UnstyledLink>
@@ -32,7 +38,7 @@ export function MobileNav({ items, children }: MobileNavProps) {
           {items.map((item, index) => (
             <UnstyledLink
               key={index}
-              href={item.disabled ? '#' : item.href}
+              href={item.disabled ? '#' : `${item.href}?ln=${ln}`}
               className={clsxm(
                 'flex w-full items-center rounded-md p-2 text-sm font-medium hover:underline',
                 item.disabled && 'cursor-not-allowed opacity-60'
